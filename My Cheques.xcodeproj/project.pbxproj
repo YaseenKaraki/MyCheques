@@ -1,0 +1,749 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		185E6DA02312747D00E1CB02 /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E6D9F2312747D00E1CB02 /* JSONDecodable.swift */; };
+		185E6DA223129EE000E1CB02 /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E6DA123129EE000E1CB02 /* Json.swift */; };
+		185E6DAA23147F2B00E1CB02 /* SettingsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E6DA923147F2B00E1CB02 /* SettingsLauncher.swift */; };
+		185E6DAC2314A35300E1CB02 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E6DAB2314A35300E1CB02 /* SettingsCell.swift */; };
+		185E6DAE2314A40A00E1CB02 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E6DAD2314A40A00E1CB02 /* BaseCell.swift */; };
+		18866FE923157F580080191F /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18866FE823157F580080191F /* MainNavigationController.swift */; };
+		18866FEC231669EB0080191F /* SettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18866FEB231669EB0080191F /* SettingsItem.swift */; };
+		18866FEF23166E810080191F /* NotificationsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18866FEE23166E810080191F /* NotificationsItem.swift */; };
+		18866FF123166ED70080191F /* LogoutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18866FF023166ED70080191F /* LogoutItem.swift */; };
+		18DD29F5230DC17200EBD74D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DD29F4230DC17200EBD74D /* AppDelegate.swift */; };
+		18DD29F7230DC17200EBD74D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DD29F6230DC17200EBD74D /* ViewController.swift */; };
+		18DD29FA230DC17200EBD74D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18DD29F8230DC17200EBD74D /* Main.storyboard */; };
+		18DD29FC230DC17400EBD74D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18DD29FB230DC17400EBD74D /* Assets.xcassets */; };
+		18DD29FF230DC17400EBD74D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18DD29FD230DC17400EBD74D /* LaunchScreen.storyboard */; };
+		18DD2A0A230DC17400EBD74D /* My_ChequesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DD2A09230DC17400EBD74D /* My_ChequesTests.swift */; };
+		18DD2A15230DC17400EBD74D /* My_ChequesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DD2A14230DC17400EBD74D /* My_ChequesUITests.swift */; };
+		18DD2A24230DC2C600EBD74D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DD2A23230DC2C600EBD74D /* Constants.swift */; };
+		18DD2A26230DC2DB00EBD74D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DD2A25230DC2DB00EBD74D /* Extensions.swift */; };
+		18DD2A28230DC2EE00EBD74D /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DD2A27230DC2EE00EBD74D /* Protocols.swift */; };
+		18DD2A2B230DC31D00EBD74D /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DD2A2A230DC31D00EBD74D /* Splash.swift */; };
+		18DD2A2E230DC34900EBD74D /*  LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DD2A2D230DC34900EBD74D /*  LoginController.swift */; };
+		18DD2A31230DC37000EBD74D /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DD2A30230DC37000EBD74D /* SignupController.swift */; };
+		18DD2A34230DC3A100EBD74D /* ForgetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DD2A33230DC3A100EBD74D /* ForgetPassword.swift */; };
+		18DD2A37230DC3CC00EBD74D /* ChangePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DD2A36230DC3CC00EBD74D /* ChangePassword.swift */; };
+		18DD2A3A230DC3F600EBD74D /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DD2A39230DC3F600EBD74D /* MainTabBarController.swift */; };
+		18DD2A3C230DC41B00EBD74D /* CalenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DD2A3B230DC41B00EBD74D /* CalenderViewController.swift */; };
+		18DD2A3E230DC45100EBD74D /* ChequesBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DD2A3D230DC45100EBD74D /* ChequesBooksViewController.swift */; };
+		18DD2A42230DC49F00EBD74D /* ReceivedChequesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DD2A41230DC49F00EBD74D /* ReceivedChequesViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		18DD2A06230DC17400EBD74D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18DD29E9230DC17200EBD74D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 18DD29F0230DC17200EBD74D;
+			remoteInfo = "My Cheques";
+		};
+		18DD2A11230DC17400EBD74D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18DD29E9230DC17200EBD74D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 18DD29F0230DC17200EBD74D;
+			remoteInfo = "My Cheques";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		185E6D9F2312747D00E1CB02 /* JSONDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecodable.swift; sourceTree = "<group>"; };
+		185E6DA123129EE000E1CB02 /* Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Json.swift; sourceTree = "<group>"; };
+		185E6DA923147F2B00E1CB02 /* SettingsLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLauncher.swift; sourceTree = "<group>"; };
+		185E6DAB2314A35300E1CB02 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		185E6DAD2314A40A00E1CB02 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
+		18866FE823157F580080191F /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		18866FEB231669EB0080191F /* SettingsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItem.swift; sourceTree = "<group>"; };
+		18866FEE23166E810080191F /* NotificationsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsItem.swift; sourceTree = "<group>"; };
+		18866FF023166ED70080191F /* LogoutItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutItem.swift; sourceTree = "<group>"; };
+		18DD29F1230DC17200EBD74D /* My Cheques.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Cheques.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		18DD29F4230DC17200EBD74D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		18DD29F6230DC17200EBD74D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		18DD29F9230DC17200EBD74D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		18DD29FB230DC17400EBD74D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		18DD29FE230DC17400EBD74D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		18DD2A00230DC17400EBD74D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18DD2A05230DC17400EBD74D /* My ChequesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "My ChequesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		18DD2A09230DC17400EBD74D /* My_ChequesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = My_ChequesTests.swift; sourceTree = "<group>"; };
+		18DD2A0B230DC17400EBD74D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18DD2A10230DC17400EBD74D /* My ChequesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "My ChequesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		18DD2A14230DC17400EBD74D /* My_ChequesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = My_ChequesUITests.swift; sourceTree = "<group>"; };
+		18DD2A16230DC17400EBD74D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18DD2A23230DC2C600EBD74D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		18DD2A25230DC2DB00EBD74D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		18DD2A27230DC2EE00EBD74D /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		18DD2A2A230DC31D00EBD74D /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
+		18DD2A2D230DC34900EBD74D /*  LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " LoginController.swift"; sourceTree = "<group>"; };
+		18DD2A30230DC37000EBD74D /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
+		18DD2A33230DC3A100EBD74D /* ForgetPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPassword.swift; sourceTree = "<group>"; };
+		18DD2A36230DC3CC00EBD74D /* ChangePassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassword.swift; sourceTree = "<group>"; };
+		18DD2A39230DC3F600EBD74D /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		18DD2A3B230DC41B00EBD74D /* CalenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderViewController.swift; sourceTree = "<group>"; };
+		18DD2A3D230DC45100EBD74D /* ChequesBooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChequesBooksViewController.swift; sourceTree = "<group>"; };
+		18DD2A41230DC49F00EBD74D /* ReceivedChequesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedChequesViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		18DD29EE230DC17200EBD74D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18DD2A02230DC17400EBD74D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18DD2A0D230DC17400EBD74D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		185E6DA323129F4E00E1CB02 /* ServerData */ = {
+			isa = PBXGroup;
+			children = (
+				185E6DA123129EE000E1CB02 /* Json.swift */,
+			);
+			path = ServerData;
+			sourceTree = "<group>";
+		};
+		185E6DA823147EE300E1CB02 /* ControllerForMenu */ = {
+			isa = PBXGroup;
+			children = (
+				185E6DA923147F2B00E1CB02 /* SettingsLauncher.swift */,
+				185E6DAB2314A35300E1CB02 /* SettingsCell.swift */,
+				185E6DAD2314A40A00E1CB02 /* BaseCell.swift */,
+			);
+			path = ControllerForMenu;
+			sourceTree = "<group>";
+		};
+		18866FED23166DB20080191F /* MenuItems */ = {
+			isa = PBXGroup;
+			children = (
+				18866FEB231669EB0080191F /* SettingsItem.swift */,
+				18866FEE23166E810080191F /* NotificationsItem.swift */,
+				18866FF023166ED70080191F /* LogoutItem.swift */,
+			);
+			path = MenuItems;
+			sourceTree = "<group>";
+		};
+		18DD29E8230DC17200EBD74D = {
+			isa = PBXGroup;
+			children = (
+				18DD29F3230DC17200EBD74D /* My Cheques */,
+				18DD2A08230DC17400EBD74D /* My ChequesTests */,
+				18DD2A13230DC17400EBD74D /* My ChequesUITests */,
+				18DD29F2230DC17200EBD74D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		18DD29F2230DC17200EBD74D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				18DD29F1230DC17200EBD74D /* My Cheques.app */,
+				18DD2A05230DC17400EBD74D /* My ChequesTests.xctest */,
+				18DD2A10230DC17400EBD74D /* My ChequesUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		18DD29F3230DC17200EBD74D /* My Cheques */ = {
+			isa = PBXGroup;
+			children = (
+				185E6DA323129F4E00E1CB02 /* ServerData */,
+				18866FED23166DB20080191F /* MenuItems */,
+				185E6DA823147EE300E1CB02 /* ControllerForMenu */,
+				18DD2A38230DC3DA00EBD74D /* TabBar */,
+				18DD2A35230DC3AD00EBD74D /* ChangePassword */,
+				18DD2A32230DC37D00EBD74D /* ForgetPassword */,
+				18DD2A2F230DC35400EBD74D /* SignUp */,
+				18DD2A2C230DC33300EBD74D /* LogIn */,
+				18DD2A29230DC2FB00EBD74D /* SplashScreen */,
+				18DD2A22230DC2B300EBD74D /* utils */,
+				18DD29F4230DC17200EBD74D /* AppDelegate.swift */,
+				18DD29F6230DC17200EBD74D /* ViewController.swift */,
+				18DD29F8230DC17200EBD74D /* Main.storyboard */,
+				18DD29FB230DC17400EBD74D /* Assets.xcassets */,
+				18DD29FD230DC17400EBD74D /* LaunchScreen.storyboard */,
+				18DD2A00230DC17400EBD74D /* Info.plist */,
+				185E6D9F2312747D00E1CB02 /* JSONDecodable.swift */,
+				18866FE823157F580080191F /* MainNavigationController.swift */,
+			);
+			path = "My Cheques";
+			sourceTree = "<group>";
+		};
+		18DD2A08230DC17400EBD74D /* My ChequesTests */ = {
+			isa = PBXGroup;
+			children = (
+				18DD2A09230DC17400EBD74D /* My_ChequesTests.swift */,
+				18DD2A0B230DC17400EBD74D /* Info.plist */,
+			);
+			path = "My ChequesTests";
+			sourceTree = "<group>";
+		};
+		18DD2A13230DC17400EBD74D /* My ChequesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				18DD2A14230DC17400EBD74D /* My_ChequesUITests.swift */,
+				18DD2A16230DC17400EBD74D /* Info.plist */,
+			);
+			path = "My ChequesUITests";
+			sourceTree = "<group>";
+		};
+		18DD2A22230DC2B300EBD74D /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				18DD2A23230DC2C600EBD74D /* Constants.swift */,
+				18DD2A25230DC2DB00EBD74D /* Extensions.swift */,
+				18DD2A27230DC2EE00EBD74D /* Protocols.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		18DD2A29230DC2FB00EBD74D /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				18DD2A2A230DC31D00EBD74D /* Splash.swift */,
+			);
+			path = SplashScreen;
+			sourceTree = "<group>";
+		};
+		18DD2A2C230DC33300EBD74D /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				18DD2A2D230DC34900EBD74D /*  LoginController.swift */,
+			);
+			path = LogIn;
+			sourceTree = "<group>";
+		};
+		18DD2A2F230DC35400EBD74D /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				18DD2A30230DC37000EBD74D /* SignupController.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		18DD2A32230DC37D00EBD74D /* ForgetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				18DD2A33230DC3A100EBD74D /* ForgetPassword.swift */,
+			);
+			path = ForgetPassword;
+			sourceTree = "<group>";
+		};
+		18DD2A35230DC3AD00EBD74D /* ChangePassword */ = {
+			isa = PBXGroup;
+			children = (
+				18DD2A36230DC3CC00EBD74D /* ChangePassword.swift */,
+			);
+			path = ChangePassword;
+			sourceTree = "<group>";
+		};
+		18DD2A38230DC3DA00EBD74D /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				18DD2A39230DC3F600EBD74D /* MainTabBarController.swift */,
+				18DD2A3B230DC41B00EBD74D /* CalenderViewController.swift */,
+				18DD2A3D230DC45100EBD74D /* ChequesBooksViewController.swift */,
+				18DD2A41230DC49F00EBD74D /* ReceivedChequesViewController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		18DD29F0230DC17200EBD74D /* My Cheques */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18DD2A19230DC17400EBD74D /* Build configuration list for PBXNativeTarget "My Cheques" */;
+			buildPhases = (
+				18DD29ED230DC17200EBD74D /* Sources */,
+				18DD29EE230DC17200EBD74D /* Frameworks */,
+				18DD29EF230DC17200EBD74D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "My Cheques";
+			productName = "My Cheques";
+			productReference = 18DD29F1230DC17200EBD74D /* My Cheques.app */;
+			productType = "com.apple.product-type.application";
+		};
+		18DD2A04230DC17400EBD74D /* My ChequesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18DD2A1C230DC17400EBD74D /* Build configuration list for PBXNativeTarget "My ChequesTests" */;
+			buildPhases = (
+				18DD2A01230DC17400EBD74D /* Sources */,
+				18DD2A02230DC17400EBD74D /* Frameworks */,
+				18DD2A03230DC17400EBD74D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				18DD2A07230DC17400EBD74D /* PBXTargetDependency */,
+			);
+			name = "My ChequesTests";
+			productName = "My ChequesTests";
+			productReference = 18DD2A05230DC17400EBD74D /* My ChequesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		18DD2A0F230DC17400EBD74D /* My ChequesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18DD2A1F230DC17400EBD74D /* Build configuration list for PBXNativeTarget "My ChequesUITests" */;
+			buildPhases = (
+				18DD2A0C230DC17400EBD74D /* Sources */,
+				18DD2A0D230DC17400EBD74D /* Frameworks */,
+				18DD2A0E230DC17400EBD74D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				18DD2A12230DC17400EBD74D /* PBXTargetDependency */,
+			);
+			name = "My ChequesUITests";
+			productName = "My ChequesUITests";
+			productReference = 18DD2A10230DC17400EBD74D /* My ChequesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		18DD29E9230DC17200EBD74D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1030;
+				LastUpgradeCheck = 1030;
+				ORGANIZATIONNAME = Apple;
+				TargetAttributes = {
+					18DD29F0230DC17200EBD74D = {
+						CreatedOnToolsVersion = 10.3;
+					};
+					18DD2A04230DC17400EBD74D = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = 18DD29F0230DC17200EBD74D;
+					};
+					18DD2A0F230DC17400EBD74D = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = 18DD29F0230DC17200EBD74D;
+					};
+				};
+			};
+			buildConfigurationList = 18DD29EC230DC17200EBD74D /* Build configuration list for PBXProject "My Cheques" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 18DD29E8230DC17200EBD74D;
+			productRefGroup = 18DD29F2230DC17200EBD74D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				18DD29F0230DC17200EBD74D /* My Cheques */,
+				18DD2A04230DC17400EBD74D /* My ChequesTests */,
+				18DD2A0F230DC17400EBD74D /* My ChequesUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		18DD29EF230DC17200EBD74D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18DD29FF230DC17400EBD74D /* LaunchScreen.storyboard in Resources */,
+				18DD29FC230DC17400EBD74D /* Assets.xcassets in Resources */,
+				18DD29FA230DC17200EBD74D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18DD2A03230DC17400EBD74D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18DD2A0E230DC17400EBD74D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		18DD29ED230DC17200EBD74D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				185E6DAA23147F2B00E1CB02 /* SettingsLauncher.swift in Sources */,
+				18866FEC231669EB0080191F /* SettingsItem.swift in Sources */,
+				18DD2A3C230DC41B00EBD74D /* CalenderViewController.swift in Sources */,
+				18DD2A28230DC2EE00EBD74D /* Protocols.swift in Sources */,
+				18DD29F7230DC17200EBD74D /* ViewController.swift in Sources */,
+				185E6DAE2314A40A00E1CB02 /* BaseCell.swift in Sources */,
+				18DD2A3A230DC3F600EBD74D /* MainTabBarController.swift in Sources */,
+				18DD2A42230DC49F00EBD74D /* ReceivedChequesViewController.swift in Sources */,
+				18866FF123166ED70080191F /* LogoutItem.swift in Sources */,
+				18DD2A37230DC3CC00EBD74D /* ChangePassword.swift in Sources */,
+				185E6DA223129EE000E1CB02 /* Json.swift in Sources */,
+				18DD29F5230DC17200EBD74D /* AppDelegate.swift in Sources */,
+				18DD2A31230DC37000EBD74D /* SignupController.swift in Sources */,
+				18DD2A24230DC2C600EBD74D /* Constants.swift in Sources */,
+				185E6DA02312747D00E1CB02 /* JSONDecodable.swift in Sources */,
+				18866FE923157F580080191F /* MainNavigationController.swift in Sources */,
+				18DD2A34230DC3A100EBD74D /* ForgetPassword.swift in Sources */,
+				185E6DAC2314A35300E1CB02 /* SettingsCell.swift in Sources */,
+				18DD2A2B230DC31D00EBD74D /* Splash.swift in Sources */,
+				18DD2A3E230DC45100EBD74D /* ChequesBooksViewController.swift in Sources */,
+				18866FEF23166E810080191F /* NotificationsItem.swift in Sources */,
+				18DD2A26230DC2DB00EBD74D /* Extensions.swift in Sources */,
+				18DD2A2E230DC34900EBD74D /*  LoginController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18DD2A01230DC17400EBD74D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18DD2A0A230DC17400EBD74D /* My_ChequesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18DD2A0C230DC17400EBD74D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18DD2A15230DC17400EBD74D /* My_ChequesUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		18DD2A07230DC17400EBD74D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 18DD29F0230DC17200EBD74D /* My Cheques */;
+			targetProxy = 18DD2A06230DC17400EBD74D /* PBXContainerItemProxy */;
+		};
+		18DD2A12230DC17400EBD74D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 18DD29F0230DC17200EBD74D /* My Cheques */;
+			targetProxy = 18DD2A11230DC17400EBD74D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		18DD29F8230DC17200EBD74D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18DD29F9230DC17200EBD74D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		18DD29FD230DC17400EBD74D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18DD29FE230DC17400EBD74D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		18DD2A17230DC17400EBD74D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		18DD2A18230DC17400EBD74D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		18DD2A1A230DC17400EBD74D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "My Cheques/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.My-Cheques";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		18DD2A1B230DC17400EBD74D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "My Cheques/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.My-Cheques";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		18DD2A1D230DC17400EBD74D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "My ChequesTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.My-ChequesTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/My Cheques.app/My Cheques";
+			};
+			name = Debug;
+		};
+		18DD2A1E230DC17400EBD74D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "My ChequesTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.My-ChequesTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/My Cheques.app/My Cheques";
+			};
+			name = Release;
+		};
+		18DD2A20230DC17400EBD74D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "My ChequesUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.My-ChequesUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "My Cheques";
+			};
+			name = Debug;
+		};
+		18DD2A21230DC17400EBD74D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "My ChequesUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.My-ChequesUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "My Cheques";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		18DD29EC230DC17200EBD74D /* Build configuration list for PBXProject "My Cheques" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18DD2A17230DC17400EBD74D /* Debug */,
+				18DD2A18230DC17400EBD74D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18DD2A19230DC17400EBD74D /* Build configuration list for PBXNativeTarget "My Cheques" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18DD2A1A230DC17400EBD74D /* Debug */,
+				18DD2A1B230DC17400EBD74D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18DD2A1C230DC17400EBD74D /* Build configuration list for PBXNativeTarget "My ChequesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18DD2A1D230DC17400EBD74D /* Debug */,
+				18DD2A1E230DC17400EBD74D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18DD2A1F230DC17400EBD74D /* Build configuration list for PBXNativeTarget "My ChequesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18DD2A20230DC17400EBD74D /* Debug */,
+				18DD2A21230DC17400EBD74D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 18DD29E9230DC17200EBD74D /* Project object */;
+}
