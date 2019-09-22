@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181E6C492323CDC8007B0101 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E6C482323CDC8007B0101 /* HomeController.swift */; };
+		181E6C4B2323CDF7007B0101 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E6C4A2323CDF7007B0101 /* MenuBar.swift */; };
+		181E6C4D2323D1C1007B0101 /* free.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E6C4C2323D1C1007B0101 /* free.swift */; };
 		185E6DA02312747D00E1CB02 /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E6D9F2312747D00E1CB02 /* JSONDecodable.swift */; };
 		185E6DA223129EE000E1CB02 /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E6DA123129EE000E1CB02 /* Json.swift */; };
 		185E6DAA23147F2B00E1CB02 /* SettingsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E6DA923147F2B00E1CB02 /* SettingsLauncher.swift */; };
@@ -16,6 +19,8 @@
 		18866FEC231669EB0080191F /* SettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18866FEB231669EB0080191F /* SettingsItem.swift */; };
 		18866FEF23166E810080191F /* NotificationsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18866FEE23166E810080191F /* NotificationsItem.swift */; };
 		18866FF123166ED70080191F /* LogoutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18866FF023166ED70080191F /* LogoutItem.swift */; };
+		18A440AD23336B9A003ACB94 /* addChequeBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A440AC23336B9A003ACB94 /* addChequeBookView.swift */; };
+		18B62D1023189F76006CB260 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B62D0F23189F76006CB260 /* UserDefaults.swift */; };
 		18DD29F5230DC17200EBD74D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DD29F4230DC17200EBD74D /* AppDelegate.swift */; };
 		18DD29F7230DC17200EBD74D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DD29F6230DC17200EBD74D /* ViewController.swift */; };
 		18DD29FA230DC17200EBD74D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18DD29F8230DC17200EBD74D /* Main.storyboard */; };
@@ -35,6 +40,9 @@
 		18DD2A3C230DC41B00EBD74D /* CalenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DD2A3B230DC41B00EBD74D /* CalenderViewController.swift */; };
 		18DD2A3E230DC45100EBD74D /* ChequesBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DD2A3D230DC45100EBD74D /* ChequesBooksViewController.swift */; };
 		18DD2A42230DC49F00EBD74D /* ReceivedChequesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DD2A41230DC49F00EBD74D /* ReceivedChequesViewController.swift */; };
+		37757B7AF3CB84FCD4E1D4F5 /* Pods_My_Cheques.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB712AFB9506EC3583F17913 /* Pods_My_Cheques.framework */; };
+		5B5924628B3B9011C584D917 /* Pods_My_ChequesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEF09CE01395D7A4F183C51A /* Pods_My_ChequesUITests.framework */; };
+		F015879A91E63B63A83D2ED6 /* Pods_My_ChequesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23BA2136950F9B44898AB980 /* Pods_My_ChequesTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +63,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		181E6C482323CDC8007B0101 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		181E6C4A2323CDF7007B0101 /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
+		181E6C4C2323D1C1007B0101 /* free.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = free.swift; sourceTree = "<group>"; };
 		185E6D9F2312747D00E1CB02 /* JSONDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecodable.swift; sourceTree = "<group>"; };
 		185E6DA123129EE000E1CB02 /* Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Json.swift; sourceTree = "<group>"; };
 		185E6DA923147F2B00E1CB02 /* SettingsLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLauncher.swift; sourceTree = "<group>"; };
@@ -64,6 +75,8 @@
 		18866FEB231669EB0080191F /* SettingsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItem.swift; sourceTree = "<group>"; };
 		18866FEE23166E810080191F /* NotificationsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsItem.swift; sourceTree = "<group>"; };
 		18866FF023166ED70080191F /* LogoutItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutItem.swift; sourceTree = "<group>"; };
+		18A440AC23336B9A003ACB94 /* addChequeBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addChequeBookView.swift; sourceTree = "<group>"; };
+		18B62D0F23189F76006CB260 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		18DD29F1230DC17200EBD74D /* My Cheques.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Cheques.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DD29F4230DC17200EBD74D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18DD29F6230DC17200EBD74D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +102,15 @@
 		18DD2A3B230DC41B00EBD74D /* CalenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderViewController.swift; sourceTree = "<group>"; };
 		18DD2A3D230DC45100EBD74D /* ChequesBooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChequesBooksViewController.swift; sourceTree = "<group>"; };
 		18DD2A41230DC49F00EBD74D /* ReceivedChequesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedChequesViewController.swift; sourceTree = "<group>"; };
+		23BA2136950F9B44898AB980 /* Pods_My_ChequesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_ChequesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DB77466A9BDCD5DCB2CE576 /* Pods-My ChequesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My ChequesTests.release.xcconfig"; path = "Target Support Files/Pods-My ChequesTests/Pods-My ChequesTests.release.xcconfig"; sourceTree = "<group>"; };
+		6B1D399C199CD43F94A17B68 /* Pods-My ChequesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My ChequesTests.debug.xcconfig"; path = "Target Support Files/Pods-My ChequesTests/Pods-My ChequesTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CB712AFB9506EC3583F17913 /* Pods_My_Cheques.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_Cheques.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA6325AF78A3B115E8B170C3 /* Pods-My Cheques.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Cheques.debug.xcconfig"; path = "Target Support Files/Pods-My Cheques/Pods-My Cheques.debug.xcconfig"; sourceTree = "<group>"; };
+		DEF09CE01395D7A4F183C51A /* Pods_My_ChequesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_ChequesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1C838950E94E6DF03924F24 /* Pods-My ChequesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My ChequesUITests.release.xcconfig"; path = "Target Support Files/Pods-My ChequesUITests/Pods-My ChequesUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E5202BA392AB97584F66BC93 /* Pods-My ChequesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My ChequesUITests.debug.xcconfig"; path = "Target Support Files/Pods-My ChequesUITests/Pods-My ChequesUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		FC938C8AD0E70A2A983C41CD /* Pods-My Cheques.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Cheques.release.xcconfig"; path = "Target Support Files/Pods-My Cheques/Pods-My Cheques.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37757B7AF3CB84FCD4E1D4F5 /* Pods_My_Cheques.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F015879A91E63B63A83D2ED6 /* Pods_My_ChequesTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,12 +134,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B5924628B3B9011C584D917 /* Pods_My_ChequesUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		181E6C472323CDA6007B0101 /* fromLets */ = {
+			isa = PBXGroup;
+			children = (
+				181E6C482323CDC8007B0101 /* HomeController.swift */,
+				181E6C4A2323CDF7007B0101 /* MenuBar.swift */,
+			);
+			path = fromLets;
+			sourceTree = "<group>";
+		};
 		185E6DA323129F4E00E1CB02 /* ServerData */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +178,15 @@
 			path = MenuItems;
 			sourceTree = "<group>";
 		};
+		18A440AB23336B60003ACB94 /* chequesBook */ = {
+			isa = PBXGroup;
+			children = (
+				18DD2A3D230DC45100EBD74D /* ChequesBooksViewController.swift */,
+				18A440AC23336B9A003ACB94 /* addChequeBookView.swift */,
+			);
+			path = chequesBook;
+			sourceTree = "<group>";
+		};
 		18DD29E8230DC17200EBD74D = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +194,8 @@
 				18DD2A08230DC17400EBD74D /* My ChequesTests */,
 				18DD2A13230DC17400EBD74D /* My ChequesUITests */,
 				18DD29F2230DC17200EBD74D /* Products */,
+				89F9C4E3F8996D74A6F1F6D9 /* Pods */,
+				5D7D4E4B6C94DE32F9A2AF8E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -167,7 +212,7 @@
 		18DD29F3230DC17200EBD74D /* My Cheques */ = {
 			isa = PBXGroup;
 			children = (
-				185E6DA323129F4E00E1CB02 /* ServerData */,
+				181E6C472323CDA6007B0101 /* fromLets */,
 				18866FED23166DB20080191F /* MenuItems */,
 				185E6DA823147EE300E1CB02 /* ControllerForMenu */,
 				18DD2A38230DC3DA00EBD74D /* TabBar */,
@@ -177,6 +222,7 @@
 				18DD2A2C230DC33300EBD74D /* LogIn */,
 				18DD2A29230DC2FB00EBD74D /* SplashScreen */,
 				18DD2A22230DC2B300EBD74D /* utils */,
+				185E6DA323129F4E00E1CB02 /* ServerData */,
 				18DD29F4230DC17200EBD74D /* AppDelegate.swift */,
 				18DD29F6230DC17200EBD74D /* ViewController.swift */,
 				18DD29F8230DC17200EBD74D /* Main.storyboard */,
@@ -185,6 +231,7 @@
 				18DD2A00230DC17400EBD74D /* Info.plist */,
 				185E6D9F2312747D00E1CB02 /* JSONDecodable.swift */,
 				18866FE823157F580080191F /* MainNavigationController.swift */,
+				181E6C4C2323D1C1007B0101 /* free.swift */,
 			);
 			path = "My Cheques";
 			sourceTree = "<group>";
@@ -213,6 +260,7 @@
 				18DD2A23230DC2C600EBD74D /* Constants.swift */,
 				18DD2A25230DC2DB00EBD74D /* Extensions.swift */,
 				18DD2A27230DC2EE00EBD74D /* Protocols.swift */,
+				18B62D0F23189F76006CB260 /* UserDefaults.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -260,12 +308,35 @@
 		18DD2A38230DC3DA00EBD74D /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				18A440AB23336B60003ACB94 /* chequesBook */,
 				18DD2A39230DC3F600EBD74D /* MainTabBarController.swift */,
 				18DD2A3B230DC41B00EBD74D /* CalenderViewController.swift */,
-				18DD2A3D230DC45100EBD74D /* ChequesBooksViewController.swift */,
 				18DD2A41230DC49F00EBD74D /* ReceivedChequesViewController.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		5D7D4E4B6C94DE32F9A2AF8E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CB712AFB9506EC3583F17913 /* Pods_My_Cheques.framework */,
+				23BA2136950F9B44898AB980 /* Pods_My_ChequesTests.framework */,
+				DEF09CE01395D7A4F183C51A /* Pods_My_ChequesUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		89F9C4E3F8996D74A6F1F6D9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DA6325AF78A3B115E8B170C3 /* Pods-My Cheques.debug.xcconfig */,
+				FC938C8AD0E70A2A983C41CD /* Pods-My Cheques.release.xcconfig */,
+				6B1D399C199CD43F94A17B68 /* Pods-My ChequesTests.debug.xcconfig */,
+				3DB77466A9BDCD5DCB2CE576 /* Pods-My ChequesTests.release.xcconfig */,
+				E5202BA392AB97584F66BC93 /* Pods-My ChequesUITests.debug.xcconfig */,
+				E1C838950E94E6DF03924F24 /* Pods-My ChequesUITests.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,9 +346,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18DD2A19230DC17400EBD74D /* Build configuration list for PBXNativeTarget "My Cheques" */;
 			buildPhases = (
+				4E394CB16C05F2C44EAC0E4D /* [CP] Check Pods Manifest.lock */,
 				18DD29ED230DC17200EBD74D /* Sources */,
 				18DD29EE230DC17200EBD74D /* Frameworks */,
 				18DD29EF230DC17200EBD74D /* Resources */,
+				0DA3427337B50DE757EBBF1F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -292,6 +365,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18DD2A1C230DC17400EBD74D /* Build configuration list for PBXNativeTarget "My ChequesTests" */;
 			buildPhases = (
+				410942DD43E33BABBADBAD97 /* [CP] Check Pods Manifest.lock */,
 				18DD2A01230DC17400EBD74D /* Sources */,
 				18DD2A02230DC17400EBD74D /* Frameworks */,
 				18DD2A03230DC17400EBD74D /* Resources */,
@@ -310,6 +384,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18DD2A1F230DC17400EBD74D /* Build configuration list for PBXNativeTarget "My ChequesUITests" */;
 			buildPhases = (
+				E917085C608C4D0044D03614 /* [CP] Check Pods Manifest.lock */,
 				18DD2A0C230DC17400EBD74D /* Sources */,
 				18DD2A0D230DC17400EBD74D /* Frameworks */,
 				18DD2A0E230DC17400EBD74D /* Resources */,
@@ -394,6 +469,92 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0DA3427337B50DE757EBBF1F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-My Cheques/Pods-My Cheques-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-My Cheques/Pods-My Cheques-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-My Cheques/Pods-My Cheques-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		410942DD43E33BABBADBAD97 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-My ChequesTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4E394CB16C05F2C44EAC0E4D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-My Cheques-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E917085C608C4D0044D03614 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-My ChequesUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		18DD29ED230DC17200EBD74D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -405,12 +566,15 @@
 				18DD2A28230DC2EE00EBD74D /* Protocols.swift in Sources */,
 				18DD29F7230DC17200EBD74D /* ViewController.swift in Sources */,
 				185E6DAE2314A40A00E1CB02 /* BaseCell.swift in Sources */,
+				181E6C4B2323CDF7007B0101 /* MenuBar.swift in Sources */,
 				18DD2A3A230DC3F600EBD74D /* MainTabBarController.swift in Sources */,
 				18DD2A42230DC49F00EBD74D /* ReceivedChequesViewController.swift in Sources */,
 				18866FF123166ED70080191F /* LogoutItem.swift in Sources */,
 				18DD2A37230DC3CC00EBD74D /* ChangePassword.swift in Sources */,
 				185E6DA223129EE000E1CB02 /* Json.swift in Sources */,
+				18A440AD23336B9A003ACB94 /* addChequeBookView.swift in Sources */,
 				18DD29F5230DC17200EBD74D /* AppDelegate.swift in Sources */,
+				181E6C4D2323D1C1007B0101 /* free.swift in Sources */,
 				18DD2A31230DC37000EBD74D /* SignupController.swift in Sources */,
 				18DD2A24230DC2C600EBD74D /* Constants.swift in Sources */,
 				185E6DA02312747D00E1CB02 /* JSONDecodable.swift in Sources */,
@@ -418,7 +582,9 @@
 				18DD2A34230DC3A100EBD74D /* ForgetPassword.swift in Sources */,
 				185E6DAC2314A35300E1CB02 /* SettingsCell.swift in Sources */,
 				18DD2A2B230DC31D00EBD74D /* Splash.swift in Sources */,
+				181E6C492323CDC8007B0101 /* HomeController.swift in Sources */,
 				18DD2A3E230DC45100EBD74D /* ChequesBooksViewController.swift in Sources */,
+				18B62D1023189F76006CB260 /* UserDefaults.swift in Sources */,
 				18866FEF23166E810080191F /* NotificationsItem.swift in Sources */,
 				18DD2A26230DC2DB00EBD74D /* Extensions.swift in Sources */,
 				18DD2A2E230DC34900EBD74D /*  LoginController.swift in Sources */,
@@ -594,6 +760,7 @@
 		};
 		18DD2A1A230DC17400EBD74D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA6325AF78A3B115E8B170C3 /* Pods-My Cheques.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -611,6 +778,7 @@
 		};
 		18DD2A1B230DC17400EBD74D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC938C8AD0E70A2A983C41CD /* Pods-My Cheques.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -628,6 +796,7 @@
 		};
 		18DD2A1D230DC17400EBD74D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B1D399C199CD43F94A17B68 /* Pods-My ChequesTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -648,6 +817,7 @@
 		};
 		18DD2A1E230DC17400EBD74D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DB77466A9BDCD5DCB2CE576 /* Pods-My ChequesTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -668,6 +838,7 @@
 		};
 		18DD2A20230DC17400EBD74D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5202BA392AB97584F66BC93 /* Pods-My ChequesUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -687,6 +858,7 @@
 		};
 		18DD2A21230DC17400EBD74D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1C838950E94E6DF03924F24 /* Pods-My ChequesUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

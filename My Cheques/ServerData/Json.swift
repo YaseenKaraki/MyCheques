@@ -9,7 +9,7 @@ public struct ServerData {
     public let id : Int
     
     
-    public init(error: String ,success: Bool, token: String,id:Int) {
+    public init(error: String ,success: Bool, token: String,id: Int) {
         self.error = error
         self.success = success
         self.token = token
@@ -28,15 +28,11 @@ extension ServerData: JSONDecodable {
         let success = JSON["success"]
         let token = JSON["token"]
         let id = JSON["user_id"]
-        
-        
         self.error = error as? String ?? ""
         self.success = success as? Bool ?? false
         self.token = token as? String ?? ""
         self.id = id as? Int ?? -1
-        
-        
-        
+
     }
     
 }

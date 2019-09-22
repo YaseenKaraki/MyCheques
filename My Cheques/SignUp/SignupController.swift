@@ -33,10 +33,20 @@ class SignupController: UIViewController,UITextFieldDelegate{
             
             else { return }
         let nameLength  = UsrName.count
-        let patternName = "[a-zA-Z ]+"
-        let isEngName = UsrName.range(of: patternName, options: .regularExpression)
         
-        if (isEngName == nil  || nameLength > 50){
+        var isEngName = false
+        
+    
+        let customSet: CharacterSet = [" "]
+        let finalSet = CharacterSet.letters.union(customSet)
+        isEngName = finalSet.isSuperset(of: CharacterSet(charactersIn: UsrName))
+        print(isEngName)
+        
+        
+//        let patternName = "[a-zA-Z ]+"
+//        let isEngName = UsrName.range(of: patternName, options: .regularExpression)
+//
+        if (!isEngName   ||  nameLength > 50){
             userNameErrorText.text = " Wrong user name."
             isTrueName = false
         }else{
@@ -47,13 +57,23 @@ class SignupController: UIViewController,UITextFieldDelegate{
 
         let mobileLength = phone.count
 //        check if phone start 05
+        var isStartTrue = false
         let patternStart = "^05"
-        let isStartTrue = phone.range(of: patternStart, options: .regularExpression)
-//        check if all number english number 
-        let patternLang = "[0-9]+" // for english number
-        let isEngNum = phone.range(of: patternLang, options: .regularExpression)
+        let startTrue = phone.range(of: patternStart, options: .regularExpression)
+        if startTrue != nil{
+            isStartTrue = true
+        }
+//      check if all number is english number..
+        var isEngNum = false
+        let engNum = Int(phone)
+        if engNum != nil {
+            isEngNum = true    
+        }
         
-        if (mobileLength != 10 || isStartTrue == nil || isEngNum == nil){
+//        print("is eng")
+//        print(isEngNum)
+        
+        if (mobileLength != 10 || !isStartTrue || !isEngNum ){
             
             isTrueMobileNo = false
             phoneErrorText.text = "Wrong phone number."
@@ -105,14 +125,15 @@ class SignupController: UIViewController,UITextFieldDelegate{
         }
         
         //        for Console:::
-        print(UsrName)
-        print(phone)
-        print(psww)
+        print("User Name: "+UsrName)
+        print("Phone Number: "+phone)
+        print("Password: "+psww)
         
     }
     
-    
+    //send data to server
     func postRegCall(name:String ,mob:String, psw:String) {
+        
         let Url = String(format: "http://192.168.100.116:9091/api/signUp")
         guard let serviceUrl = URL(string: Url) else { return }
         let parameterDictionary = ["user_name": name,"user_phone": mob, "user_password":psw]
@@ -131,6 +152,7 @@ class SignupController: UIViewController,UITextFieldDelegate{
                 do {
                     let JSON = try JSONSerialization.jsonObject(with: data, options: [])
                     if let serverData = ServerData(JSON: JSON){
+                        
                         print(serverData)
                     }
                     print(JSON)
@@ -172,107 +194,108 @@ class SignupController: UIViewController,UITextFieldDelegate{
         let l = UILabel()
         l.font = ffont
         l.text = "Create new account"
-        l.textColor = THEME
+        l.textColor = YClolr
         l.textAlignment = .center
 //        l.layer.borderWidth = 2
 //        l.layer.cornerRadius = 15.0
+        return l
+    }()
+    let switchLabel: UILabel = {
+        let ffont = UIFont.systemFont(ofSize: 11)
+        let l = UILabel()
+        l.font = ffont
+        l.text = "Hide/Show Password"
+        l.textColor = YClolr
         return l
     }()
     
 
     let userNameTextField: UITextField = {
         
-        let n = UITextField()
+        let e = UITextField()
+        let attributedPlacholder = NSAttributedString(string: "User Name", attributes:[
+            NSAttributedString.Key.foregroundColor : YClolr])
+        e.attributedPlaceholder = attributedPlacholder
+        e.setBottomBorder(backGroundColor: THEME, borderColor: YClolr)
+        e.keyboardType = UIKeyboardType.asciiCapable
         
-        n.attributedPlaceholder = NSAttributedString(string: "User Name",
-                                                     attributes: [NSAttributedString.Key.foregroundColor: YClolr])
-        n.textAlignment = .center
-        n.textColor = .black
-        n.backgroundColor = THEME
-        n.layer.cornerRadius = 10.0
-        n.layer.borderWidth = 2.0
-        n.layer.borderWidth = 0
-        n.keyboardType = UIKeyboardType.asciiCapable
-        
-        //          n.setBottomBorder(backGroundColor: THEME, borderColor: YClolr)
-        
-        return n
+        return e
     }()
     
+
     let mobileNumberTextField: UITextField = {
-        let m = UITextField()
+        let e = UITextField()
         
-        let attributedPlacholder = NSAttributedString(string: "Mobile Number", attributes:[
+        let attributedPlacholder = NSAttributedString(string: "Phone Number", attributes:[
             NSAttributedString.Key.foregroundColor : YClolr])
+        e.attributedPlaceholder = attributedPlacholder
+        e.setBottomBorder(backGroundColor: THEME, borderColor: YClolr)
+        e.keyboardType = UIKeyboardType.phonePad
         
         
         
-        m.attributedPlaceholder = attributedPlacholder
-        m.textAlignment = .center
-        m.textColor = .black
-        m.backgroundColor = THEME
-        m.layer.cornerRadius = 10.0
-        m.layer.borderWidth = 2.0
-        m.layer.borderWidth  = 0
-        m.keyboardType = UIKeyboardType.phonePad
-        
-        
-        //          m.setBottomBorder(backGroundColor: THEME, borderColor: YClolr)
-        return m
+        return e
     }()
     
     let passwordTextField: UITextField = {
-        let m = UITextField()
-        
+        let p = UITextField()
         let attributedPlacholder = NSAttributedString(string: "Password", attributes:[
             NSAttributedString.Key.foregroundColor : YClolr])
+        p.isSecureTextEntry.toggle()
+        p.attributedPlaceholder = attributedPlacholder
+        p.setBottomBorder(backGroundColor: THEME, borderColor: YClolr)
         
-        
-        m.isSecureTextEntry.toggle()
-        m.attributedPlaceholder = attributedPlacholder
-        m.textAlignment = .center
-        m.textColor = .black
-        m.backgroundColor = THEME
-        m.layer.cornerRadius = 10.0
-        m.layer.borderWidth = 2.0
-        m.layer.borderWidth  = 0
-        //          m.setBottomBorder(backGroundColor: THEME, borderColor: YClolr)
-        
-        
-        return m
+        return p
     }()
+    
+    let switchBtn: UISwitch = {
+        let sw = UISwitch()
+        sw.onTintColor = YClolr
+        sw.addTarget(self, action: #selector(switchAction), for: .touchUpInside)
+        return sw
+        
+    }()
+    @objc func switchAction(){
+        
+        if (switchBtn.isOn){
+            passwordTextField.isSecureTextEntry = false
+            confirmPswdTextField.isSecureTextEntry = false
+            
+        }else{
+            passwordTextField.isSecureTextEntry = true
+            confirmPswdTextField.isSecureTextEntry = true
+            
+            
+        }
+        
+        
+        
+    }
     let confirmPswdTextField: UITextField = {
-        let m = UITextField()
+        let p = UITextField()
+        
         
         let attributedPlacholder = NSAttributedString(string: "Confirm Password", attributes:[
             NSAttributedString.Key.foregroundColor : YClolr])
-        
-        
-        m.isSecureTextEntry = true
-        m.attributedPlaceholder = attributedPlacholder
-        m.textAlignment = .center
-        m.textColor = .black
-        m.backgroundColor = THEME
-        m.layer.cornerRadius = 10.0
-        m.layer.borderWidth = 2.0
-        m.layer.borderWidth  = 0
-        //        m.setBottomBorder(backGroundColor: THEME, borderColor: YClolr)
-        
-        return m
+        p.isSecureTextEntry.toggle()
+        p.attributedPlaceholder = attributedPlacholder
+        p.setBottomBorder(backGroundColor: THEME, borderColor: YClolr)
+        return p
     }()
+    
     
     
     let haveAccountButton : UIButton = {
         let font = UIFont.systemFont(ofSize: 16)
         
         let btn = UIButton(type: .system)
-        btn.backgroundColor = YClolr
+        btn.backgroundColor = THEME
         let attributedTitle = NSMutableAttributedString(string: "Already have an account? ",
-                                                        attributes: [NSAttributedString.Key.foregroundColor:THEME,
+                                                        attributes: [NSAttributedString.Key.foregroundColor:YClolr,
                                                                      NSAttributedString.Key.font: font])
         
         
-        attributedTitle.append(NSAttributedString(string: "Sign In", attributes:  [NSAttributedString.Key.foregroundColor:THEME,
+        attributedTitle.append(NSAttributedString(string: "Sign In", attributes:  [NSAttributedString.Key.foregroundColor:YClolr,
                                                                                    NSAttributedString.Key.font: font]))
         
         btn.setAttributedTitle(attributedTitle, for: .normal)
@@ -287,13 +310,13 @@ class SignupController: UIViewController,UITextFieldDelegate{
     let signupButton: UIButton = {
         let b = UIButton(type: .system)
         
-        b.setTitleColor(YClolr, for: .normal)
+        b.setTitleColor(THEME, for: .normal)
         b.setTitle("Sign Up", for: .normal)
         
         let font = UIFont(name: "AppleSDGothicNeo-Bold", size: 30)
         b.titleLabel?.font = font
         
-        b.backgroundColor = THEME
+        b.backgroundColor = YClolr
         b.layer.cornerRadius = 30.0
         b.clipsToBounds = true
         b.addTarget(self, action: #selector(signUpBtnAction), for: .touchUpInside)
@@ -313,7 +336,7 @@ class SignupController: UIViewController,UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
-        view.backgroundColor = YClolr
+        view.backgroundColor = THEME
         
         signupButton.isEnabled = false
         [userNameTextField, mobileNumberTextField, passwordTextField, confirmPswdTextField].forEach({ $0.addTarget(self,
@@ -334,7 +357,8 @@ class SignupController: UIViewController,UITextFieldDelegate{
         setupPhoneErrorText()
         setupPasswordErrorText()
         setupConfPasswordErrorText()
-        
+        setupSwitchBtn()
+        setupSwitchLabel()
         
     }
     
@@ -353,7 +377,7 @@ class SignupController: UIViewController,UITextFieldDelegate{
         
         let x = UILabel()
         x.text = " "
-        x.textColor = UIColor.yellow
+        x.textColor = UIColor.red
         x.font = ffont
         x.textAlignment = .left
         
@@ -366,7 +390,7 @@ class SignupController: UIViewController,UITextFieldDelegate{
         
         let x = UILabel()
         x.text = " "
-        x.textColor = UIColor.yellow
+        x.textColor = UIColor.red
         x.font = ffont
         x.textAlignment = .left
         
@@ -378,7 +402,7 @@ class SignupController: UIViewController,UITextFieldDelegate{
         
         let x = UILabel()
         x.text = " "
-        x.textColor = UIColor.yellow
+        x.textColor = .red
         x.font = ffont
         x.textAlignment = .left
         
@@ -390,7 +414,7 @@ class SignupController: UIViewController,UITextFieldDelegate{
         
         let x = UILabel()
         x.text = " "
-        x.textColor = UIColor.yellow
+        x.textColor = UIColor.red
         x.font = ffont
         x.textAlignment = .left
         
@@ -421,7 +445,8 @@ class SignupController: UIViewController,UITextFieldDelegate{
         userNameTextField.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 24).isActive = true
         userNameTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -24).isActive = true
         userNameTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        userNameTextField.bottomAnchor.constraint(equalTo:view.centerYAnchor, constant: -80).isActive = true
+        userNameTextField.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 60).isActive = true
+//        userNameTextField.bottomAnchor.constraint(equalTo:view.centerYAnchor, constant: 0).isActive = true
         
     }
     fileprivate func setupUserNameErrorText (){
@@ -508,11 +533,29 @@ class SignupController: UIViewController,UITextFieldDelegate{
         confPasswordErrorText.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -24).isActive = true
         confPasswordErrorText.heightAnchor.constraint(equalToConstant: 20).isActive = true
     }
+    fileprivate func setupSwitchBtn(){
+        view.addSubview(switchBtn)
+        
+        switchBtn.translatesAutoresizingMaskIntoConstraints = false
+        
+        switchBtn.topAnchor.constraint(equalTo: confirmPswdTextField.bottomAnchor,constant: 20).isActive = true
+        switchBtn.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 24).isActive = true
+        switchBtn.heightAnchor.constraint(equalToConstant: 30).isActive = true
+    }
+    fileprivate func setupSwitchLabel(){
+        view.addSubview(switchLabel)
+        switchLabel.anchors(top: confirmPswdTextField.bottomAnchor, topPad: 20,
+                      bottom: nil, bottomPad: 0,
+                      left: switchBtn.rightAnchor, leftPad:5 ,
+                      right: nil, rightPad: 0,
+                      height: 30, width: 400)
+    }
+        
     
     fileprivate func setupSignupButton(){
         view.addSubview(signupButton)
         signupButton.translatesAutoresizingMaskIntoConstraints = false
-        signupButton.topAnchor.constraint(equalTo: confirmPswdTextField.bottomAnchor,constant: 30).isActive = true
+        signupButton.topAnchor.constraint(equalTo: confirmPswdTextField.bottomAnchor,constant: 55).isActive = true
         signupButton.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 66).isActive = true
         signupButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -66).isActive = true
         signupButton.heightAnchor.constraint(equalToConstant: 60).isActive = true

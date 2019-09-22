@@ -1,32 +1,44 @@
 import UIKit
 
 class LogoutItem: UIViewController {
+    override func viewDidAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = true
+        sureAlert()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setuplabel()
-        // Do any additional setup after loading the view.
-    }
-    let label: UILabel = {
-        
-        let l = UILabel()
-        l.text = "Welcome To Logout:"
-        return l
-        
-    }()
-    
-    fileprivate func setuplabel (){
-        view.addSubview(label)
-        label.anchors(top: view.safeAreaLayoutGuide.topAnchor, topPad: 50,
-                      bottom: nil, bottomPad: 0,
-                      left: view.leftAnchor, leftPad:0 ,
-                      right: view.rightAnchor, rightPad: 0,
-                      height: 25, width: 400)
-        
-        
-        
+        self.tabBarController?.tabBar.isHidden = true
+        self.title = ""
+       
         
     }
+
+   
     
+    func sureAlert(){
+        
+        
+        let alert = UIAlertController(title: "Are you sure to log out?", message: nil, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: {
+            
+            action in
+            let loginController = LoginController()
+            self.navigationController?.pushViewController(loginController, animated: false)
+            
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: {
+            
+            action in
+            self.navigationController?.popViewController(animated: false)
+            
+            
+        }))
+        
+        self.present(alert, animated: false)
+        
+        
+    }
     
 }

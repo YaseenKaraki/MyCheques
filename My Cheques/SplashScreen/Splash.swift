@@ -10,6 +10,10 @@ import UIKit
 
 class splash: UIViewController{
     
+    fileprivate func isLoggedIn()->Bool{
+        return UserDefaults.standard.isLoggedIn()
+    }
+    
     let logo: UIImageView = {
         let i = UIImageView()
         //        i.image = #imageLiteral(resourceName: "pic") // Image Literal
@@ -43,16 +47,19 @@ class splash: UIViewController{
         
         
         setupAddLogo()
-        
-        
     }
+        
+        }
+        
+        
+
     
     
     
     
     
     
-}
+
 
 
 

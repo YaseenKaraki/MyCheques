@@ -9,27 +9,32 @@
 import Foundation
 import UIKit
 
-class MainTabBarController : UITabBarController{
+ class MainTabBarController : UITabBarController{
 
     override func viewDidLoad() {
+
         super.viewDidLoad()
         tabBar.barTintColor = .white
         view.backgroundColor = THEME
-        self.hideKeyboardWhenTappedAround() // tp hide keyboard..
-        navigationController?.isNavigationBarHidden = false
+        self.hideKeyboardWhenTappedAround() // tap to  hide keyboard..
+        navigationController?.isNavigationBarHidden = true
+        self.tabBarController?.tabBar.isHidden = false
+
         setupTabBar()
         configrationNavigationBar()
     }
-    func setupTabBar(){
+  
+   public func setupTabBar(){
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: YClolr], for: .selected) // for text color
         UITabBar.appearance().tintColor = YClolr// for icon color
 
-        print("hello")
         
         let clanderController = UINavigationController(rootViewController: CalenderViewController())
         clanderController.tabBarItem.image = UIImage(named: "iconCalenderWhite")
         clanderController.tabBarItem.selectedImage = UIImage(named: "iconCalenderDark")?.withRenderingMode(.alwaysTemplate)
         clanderController.title = "Calender"
+        clanderController.navigationController?.title = "Calender"
+    
         
         
         
@@ -55,15 +60,50 @@ class MainTabBarController : UITabBarController{
         
         navigationController?.navigationBar.barTintColor = YClolr
         navigationController?.navigationBar.barStyle = .black
-        navigationItem.title = ""
-//        navigationItem.leftBarButtonItem?.tintColor = UIColor.white
+        navigationItem.leftBarButtonItem?.tintColor = UIColor.white
+        navigationItem.rightBarButtonItem?.tintColor = UIColor.white
+        navigationItem.backBarButtonItem?.tintColor = UIColor.white
+//        let menuButton = UIButton(type: .system)
+//        menuButton.setImage( #imageLiteral(resourceName: "iconMenu") ,for: .normal)
+//        
+//        menuButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+//            navigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton)
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "iconMenu").withRenderingMode(.alwaysTemplate), style: .plain, target: self, action: #selector(handleMenuToggle))
-        
-
         
     }
     @objc func handleMenuToggle(){
-        print("Main")
+        print("From Main")
+
+   
+    }
+    let notificationsItem = NotificationsItem()
+    let settingItem = SettingItem()
+    let logoutItem = LogoutItem()
+    
+    func showSettings(setting: Setting){
+
+        navigationController?.pushViewController(settingItem, animated: true)
+        settingItem.navigationItem.title = setting.name
+        navigationController?.navigationBar.tintColor = THEME
+        //        dumyViewController.view.backgroundColor = UIColor.black // for title(name) color
+        
+    }
+    func showNotifications(setting: Setting){
+        
+        navigationController?.pushViewController(notificationsItem, animated: true)
+        
+        notificationsItem.navigationItem.title = setting.name
+        navigationController?.navigationBar.tintColor = THEME
+        //        dumyViewController.view.backgroundColor = UIColor.black // for title(name) color
+        
+    }
+    func showLogout(setting: Setting){
+        
+        navigationController?.pushViewController(logoutItem, animated: true)
+        
+        logoutItem.navigationItem.title = setting.name
+        navigationController?.navigationBar.tintColor = THEME
+        //        dumyViewController.view.backgroundColor = UIColor.black // for title(name) color
         
     }
     

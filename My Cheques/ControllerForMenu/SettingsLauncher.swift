@@ -28,7 +28,6 @@ UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     let menuView = UIView()
     let collectionView: UICollectionView = {
-        
         let layout = UICollectionViewFlowLayout()
         let cv  = UICollectionView(frame: .zero, collectionViewLayout: layout)
         return cv
@@ -109,6 +108,8 @@ UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     } // for line space
     
     var calenderController: CalenderViewController?
+    var chequesBooksController : ChequesBooksViewController?
+    var receivedChequesController: ReceivedChequesViewController?
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
@@ -124,29 +125,34 @@ UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
         }) { (completed:Bool) in
             
             let setting = self.settings[indexPath.item]
+            
             if setting.name == "Settings"{
                 
-            
             self.calenderController?.showSettings(setting: setting)
+            self.chequesBooksController?.showSettings(setting: setting)
+            self.receivedChequesController?.showSettings(setting: setting)
+
                 
             }
             if setting.name == "Notification"{
                 
                 self.calenderController?.showNotifications(setting: setting)
-
+                self.chequesBooksController?.showNotifications(setting: setting)
+                self.receivedChequesController?.showNotifications(setting: setting)
                 
             }
             if setting.name == "Log Out"{
-                
+           
                 self.calenderController?.showLogout(setting: setting)
-
-                
+                self.chequesBooksController?.showLogout(setting: setting)
+                self.receivedChequesController?.showLogout(setting: setting)
             }
         }
         
     
     }
-    
+   
+   
     override init() {
         super.init()
         collectionView.dataSource = self

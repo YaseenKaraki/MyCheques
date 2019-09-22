@@ -7,13 +7,10 @@
 //
 
 import UIKit
-
-
-
-
 class LoginController: UIViewController, UITextFieldDelegate {
     
 
+    
 
     func postLoginCall(mob:String, psw:String) {
         let Url = String(format: "http://192.168.100.108:9091/api/auth")
@@ -56,18 +53,27 @@ class LoginController: UIViewController, UITextFieldDelegate {
             let phone = phoneTextField.text,
             let psww = passwordTextField.text
             else { return }
+        //check if start 05
+        var isStartTrue = false
         let patternStart = "^05"
-        let isStartTrue = phone.range(of: patternStart, options: .regularExpression)
-        //        check if all number english number
-        let patternLang = "[0-9]+" // for english number
-        let isEngNum = phone.range(of: patternLang, options: .regularExpression)
+        let startTrue = phone.range(of: patternStart, options: .regularExpression)
+        if startTrue != nil{
+            isStartTrue = true
+        }
         
+        //        check if all number english number
+        var isEngNum = false
+        let engNum = Int(phone)
+        if engNum != nil {
+            isEngNum = true
+        }
         let PswLength = psww.count
         let phoneLength = phone.count
         
         
-        if (PswLength >= 8 && phoneLength == 10 && isStartTrue != nil && isEngNum != nil){
+        if (PswLength >= 8 && phoneLength == 10 && isStartTrue  && isEngNum ){
             postLoginCall(mob: phone, psw: psww)
+            
             
             goToHomePageAction()
         }
@@ -117,12 +123,10 @@ class LoginController: UIViewController, UITextFieldDelegate {
         
     }
     
-    
     @objc  func goToHomePageAction(){
-        
-        let home = MainTabBarController()
-
+     let home = MainTabBarController()
         navigationController?.pushViewController(home, animated: true)
+        
     }
     
     
@@ -130,6 +134,26 @@ class LoginController: UIViewController, UITextFieldDelegate {
         let forgetPasswordController = ForgetPasswordController()
         
         navigationController?.pushViewController(forgetPasswordController, animated: false)
+    }
+    
+    let switchBtn: UISwitch = {
+        let sw = UISwitch()
+        sw.onTintColor = YClolr
+        sw.addTarget(self, action: #selector(switchAction), for: .touchUpInside)
+        return sw
+    
+    }()
+    @objc func switchAction(){
+        
+        if (switchBtn.isOn){
+            passwordTextField.isSecureTextEntry = false
+//            passwordTextField.textColor = YClolr
+            
+        }else{
+        passwordTextField.isSecureTextEntry = true
+
+        
+        }
     }
     
     
@@ -142,9 +166,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         
         
         e.attributedPlaceholder = attributedPlacholder
-        //        e.backgroundColor = THEME
-        //        e.layer.borderColor = UIColor.white.cgColor
-        //        e.layer.borderWidth = 2
+
         
         e.setBottomBorder(backGroundColor: THEME, borderColor: YClolr)
         e.keyboardType = UIKeyboardType.phonePad
@@ -160,12 +182,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         let attributedPlacholder = NSAttributedString(string: "Password", attributes:[
             NSAttributedString.Key.foregroundColor : YClolr])
         p.isSecureTextEntry.toggle()
-        
         p.attributedPlaceholder = attributedPlacholder
-        //        p.backgroundColor = THEME
-        //        p.layer.borderColor = UIColor.white.cgColor
-        //        p.layer.borderWidth = 2
-        
         p.setBottomBorder(backGroundColor: THEME, borderColor: YClolr)
         
         return p
@@ -230,7 +247,10 @@ class LoginController: UIViewController, UITextFieldDelegate {
     }()
     
     
-    
+    override func viewDidAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = true
+
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -241,22 +261,23 @@ class LoginController: UIViewController, UITextFieldDelegate {
         
         loginButton.isEnabled = false
         [phoneTextField, passwordTextField].forEach({ $0.addTarget(self, action: #selector(editingChanged), for: .editingChanged) })
-        
 
         
         phoneTextField.smartInsertDeleteType = UITextSmartInsertDeleteType.no
         phoneTextField.delegate = self
         
 
-        self.hideKeyboardWhenTappedAround() // tp hide keyboard..
-        setupAddLogo()
+        self.hideKeyboardWhenTappedAround() // tap to hide keyboard..
         setupTextFeildComponents()
         setupLoginButton()
         setupHaveAccountButton()
         setupForgotPasswordButton()
-  
+        setupSwitchBtn ()
+        setupAddLogo()
+
         
     }
+    
     
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -280,19 +301,21 @@ class LoginController: UIViewController, UITextFieldDelegate {
         
     }
     
-    
-    fileprivate func setupAddLogo(){
+    fileprivate func setupSwitchBtn (){
+        view.addSubview(switchBtn)
         
-        view.addSubview(logo)
-        logo.anchors(top: view.safeAreaLayoutGuide.topAnchor, topPad: 90,
-                     bottom: nil, bottomPad: 0,
-                     left: nil, leftPad: 0,
-                     right: nil, rightPad: 0,
-                     height: 190, width: 190)
-        logo.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        switchBtn.translatesAutoresizingMaskIntoConstraints = false
+        //        for width and hieght:
+        //        phoneTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 16).isActive = true
+        switchBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -24).isActive = true
+        switchBtn.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        switchBtn.centerYAnchor.constraint(equalTo:passwordTextField.centerYAnchor, constant: 0).isActive = true
+        
+        
         
         
     }
+    
     
     
     
@@ -301,6 +324,19 @@ class LoginController: UIViewController, UITextFieldDelegate {
         setupPasswordTextField()
     }
     
+    fileprivate func setupAddLogo(){
+        
+        view.addSubview(logo)
+        logo.anchors(top: nil, topPad: 0,
+                     bottom: phoneTextField.topAnchor, bottomPad: 20,
+                     left: nil, leftPad: 0,
+                     right: nil, rightPad: 0,
+                     height: 190, width: 190)
+        
+        logo.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        
+    }
     
     fileprivate func setupPhoneTextField (){
         view.addSubview(phoneTextField)
@@ -324,7 +360,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         passwordTextField.topAnchor.constraint(equalTo: phoneTextField.bottomAnchor,constant: 15).isActive = true
         passwordTextField.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 24).isActive = true
-        passwordTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -24).isActive = true
+        passwordTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -70).isActive = true
         passwordTextField.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
     }
@@ -395,8 +431,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
 //
 //    }
 //
-    
-    
+   
 
 }
 

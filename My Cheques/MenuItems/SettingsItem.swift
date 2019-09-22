@@ -9,33 +9,39 @@
 import UIKit
 
 class SettingItem: UIViewController {
+    override func viewDidAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = true
+        
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         setuplabel()
-        // Do any additional setup after loading the view.
-        view.backgroundColor = YClolr
+        view.backgroundColor = THEME
     }
+    
     let label: UILabel = {
-        
         let l = UILabel()
         l.text = "Welcome To Settings:"
         return l
-        
     }()
     
-   fileprivate func setuplabel (){
+    
+    
+
+   fileprivate func setuplabel(){
     view.addSubview(label)
-    label.anchors(top: view.safeAreaLayoutGuide.bottomAnchor, topPad: 60,
+    label.anchors(top: view.safeAreaLayoutGuide.bottomAnchor, topPad: 0,
                   bottom: nil, bottomPad: 0,
                   left: view.leftAnchor, leftPad:0 ,
                   right: view.rightAnchor, rightPad: 0,
                   height: 25, width: 400)
-    
-    
+
     
     
     }
     
-    
 }
+

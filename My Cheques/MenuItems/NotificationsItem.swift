@@ -1,9 +1,15 @@
 import UIKit
 
 class NotificationsItem: UIViewController {
-    
+    override func viewDidAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = true
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.tabBar.isHidden = true
+
+
         setuplabel()
         // Do any additional setup after loading the view.
     }
