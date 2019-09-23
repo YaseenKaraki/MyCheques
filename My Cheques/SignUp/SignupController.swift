@@ -244,33 +244,11 @@ class SignupController: UIViewController,UITextFieldDelegate{
         p.isSecureTextEntry.toggle()
         p.attributedPlaceholder = attributedPlacholder
         p.setBottomBorder(backGroundColor: THEME, borderColor: YClolr)
-        
+        p.rightViewMode = .always
         return p
     }()
     
-    let switchBtn: UISwitch = {
-        let sw = UISwitch()
-        sw.onTintColor = YClolr
-        sw.addTarget(self, action: #selector(switchAction), for: .touchUpInside)
-        return sw
-        
-    }()
-    @objc func switchAction(){
-        
-        if (switchBtn.isOn){
-            passwordTextField.isSecureTextEntry = false
-            confirmPswdTextField.isSecureTextEntry = false
-            
-        }else{
-            passwordTextField.isSecureTextEntry = true
-            confirmPswdTextField.isSecureTextEntry = true
-            
-            
-        }
-        
-        
-        
-    }
+
     let confirmPswdTextField: UITextField = {
         let p = UITextField()
         
@@ -280,9 +258,43 @@ class SignupController: UIViewController,UITextFieldDelegate{
         p.isSecureTextEntry.toggle()
         p.attributedPlaceholder = attributedPlacholder
         p.setBottomBorder(backGroundColor: THEME, borderColor: YClolr)
+        p.rightViewMode = .always
         return p
     }()
     
+    let closeEyeButton: UIButton = {
+        let b = UIButton()
+        b.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+        b.clipsToBounds = true
+        b.setImage(#imageLiteral(resourceName: "closeEye").withRenderingMode(.alwaysOriginal), for: .normal)
+        b.addTarget(self, action: #selector(eyeHandler), for: .touchUpInside)
+        return b
+        
+    }()
+    
+    
+    let openEyeButton: UIButton = {
+        let b = UIButton()
+        b.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+        b.clipsToBounds = true
+        b.setImage(#imageLiteral(resourceName: "Openeye").withRenderingMode(.alwaysOriginal), for: .normal)
+        b.addTarget(self, action: #selector(eyeHandler), for: .touchUpInside)
+        return b
+    }()
+    var IsOpen = false
+    @objc func eyeHandler(sender: UIButton!){
+        IsOpen = !IsOpen
+        if (IsOpen){
+            confirmPswdTextField.rightView = openEyeButton
+            passwordTextField.isSecureTextEntry = false
+            confirmPswdTextField.isSecureTextEntry = false
+        }else{
+            confirmPswdTextField.rightView = closeEyeButton
+            passwordTextField.isSecureTextEntry = true
+            confirmPswdTextField.isSecureTextEntry = true
+        }
+        
+    }
     
     
     let haveAccountButton : UIButton = {
@@ -357,8 +369,9 @@ class SignupController: UIViewController,UITextFieldDelegate{
         setupPhoneErrorText()
         setupPasswordErrorText()
         setupConfPasswordErrorText()
-        setupSwitchBtn()
-        setupSwitchLabel()
+        
+        confirmPswdTextField.rightView = closeEyeButton
+
         
     }
     
@@ -533,24 +546,7 @@ class SignupController: UIViewController,UITextFieldDelegate{
         confPasswordErrorText.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -24).isActive = true
         confPasswordErrorText.heightAnchor.constraint(equalToConstant: 20).isActive = true
     }
-    fileprivate func setupSwitchBtn(){
-        view.addSubview(switchBtn)
-        
-        switchBtn.translatesAutoresizingMaskIntoConstraints = false
-        
-        switchBtn.topAnchor.constraint(equalTo: confirmPswdTextField.bottomAnchor,constant: 20).isActive = true
-        switchBtn.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 24).isActive = true
-        switchBtn.heightAnchor.constraint(equalToConstant: 30).isActive = true
-    }
-    fileprivate func setupSwitchLabel(){
-        view.addSubview(switchLabel)
-        switchLabel.anchors(top: confirmPswdTextField.bottomAnchor, topPad: 20,
-                      bottom: nil, bottomPad: 0,
-                      left: switchBtn.rightAnchor, leftPad:5 ,
-                      right: nil, rightPad: 0,
-                      height: 30, width: 400)
-    }
-        
+   
     
     fileprivate func setupSignupButton(){
         view.addSubview(signupButton)

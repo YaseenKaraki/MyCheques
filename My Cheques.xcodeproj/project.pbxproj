@@ -405,12 +405,20 @@
 		18DD29E9230DC17200EBD74D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 1030;
 				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = Apple;
 				TargetAttributes = {
 					18DD29F0230DC17200EBD74D = {
 						CreatedOnToolsVersion = 10.3;
+						SystemCapabilities = {
+							com.apple.AccessWiFi = {
+								enabled = 0;
+							};
+						};
 					};
 					18DD2A04230DC17400EBD74D = {
 						CreatedOnToolsVersion = 10.3;

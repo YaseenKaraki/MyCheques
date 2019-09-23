@@ -20,7 +20,6 @@ class splash: UIViewController{
         i.image = #imageLiteral(resourceName: "logo2")
         i.layer.masksToBounds = true
         i.layer.cornerRadius = 15
-        
         return i
     }()
     
@@ -40,6 +39,7 @@ class splash: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
         view.backgroundColor = YClolr
         //        to hide nav par from top

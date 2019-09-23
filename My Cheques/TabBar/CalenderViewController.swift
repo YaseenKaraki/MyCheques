@@ -113,7 +113,7 @@
 
     }
     func showLogout(setting: Setting){
-
+        
         navigationController?.pushViewController(logoutItem, animated: true)
 
         logoutItem.navigationItem.title = setting.name

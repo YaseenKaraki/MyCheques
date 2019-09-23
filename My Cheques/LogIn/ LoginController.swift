@@ -9,9 +9,6 @@
 import UIKit
 class LoginController: UIViewController, UITextFieldDelegate {
     
-
-    
-
     func postLoginCall(mob:String, psw:String) {
         let Url = String(format: "http://192.168.100.108:9091/api/auth")
         guard let serviceUrl = URL(string: Url) else { return }
@@ -136,25 +133,25 @@ class LoginController: UIViewController, UITextFieldDelegate {
         navigationController?.pushViewController(forgetPasswordController, animated: false)
     }
     
-    let switchBtn: UISwitch = {
-        let sw = UISwitch()
-        sw.onTintColor = YClolr
-        sw.addTarget(self, action: #selector(switchAction), for: .touchUpInside)
-        return sw
-    
-    }()
-    @objc func switchAction(){
-        
-        if (switchBtn.isOn){
-            passwordTextField.isSecureTextEntry = false
-//            passwordTextField.textColor = YClolr
-            
-        }else{
-        passwordTextField.isSecureTextEntry = true
-
-        
-        }
-    }
+//    let switchBtn: UISwitch = {
+//        let sw = UISwitch()
+//        sw.onTintColor = YClolr
+//        sw.addTarget(self, action: #selector(switchAction), for: .touchUpInside)
+//        return sw
+//
+//    }()
+//    @objc func switchAction(){
+//
+//        if (switchBtn.isOn){
+//            passwordTextField.isSecureTextEntry = false
+////            passwordTextField.textColor = YClolr
+//
+//        }else{
+//        passwordTextField.isSecureTextEntry = true
+//
+//
+//        }
+//    }
     
     
     let phoneTextField: UITextField = {
@@ -175,7 +172,38 @@ class LoginController: UIViewController, UITextFieldDelegate {
         
         return e
     }()
+    let closeEyeButton: UIButton = {
+        let b = UIButton()
+        b.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+        b.clipsToBounds = true
+        b.setImage(#imageLiteral(resourceName: "closeEye").withRenderingMode(.alwaysOriginal), for: .normal)
+        b.addTarget(self, action: #selector(eyeHandler), for: .touchUpInside)
+        return b
+
+    }()
     
+    
+    let openEyeButton: UIButton = {
+        let b = UIButton()
+        b.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+        b.clipsToBounds = true
+        b.setImage(#imageLiteral(resourceName: "Openeye").withRenderingMode(.alwaysOriginal), for: .normal)
+        b.addTarget(self, action: #selector(eyeHandler), for: .touchUpInside)
+        return b
+    }()
+    var IsOpen = false
+    @objc func eyeHandler(){
+        IsOpen = !IsOpen
+
+        if (IsOpen){
+            passwordTextField.rightView = openEyeButton
+            passwordTextField.isSecureTextEntry = false
+        }else{
+            passwordTextField.rightView = closeEyeButton
+            passwordTextField.isSecureTextEntry = true
+        }
+        
+           }
     
     let passwordTextField: UITextField = {
         let p = UITextField()
@@ -184,6 +212,8 @@ class LoginController: UIViewController, UITextFieldDelegate {
         p.isSecureTextEntry.toggle()
         p.attributedPlaceholder = attributedPlacholder
         p.setBottomBorder(backGroundColor: THEME, borderColor: YClolr)
+        p.rightViewMode = .always
+        
         
         return p
     }()
@@ -213,7 +243,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         return f
     }()
     
-   
+    
     
     let haveAccountButton : UIButton = {
         let font = UIFont.systemFont(ofSize: 16)
@@ -225,8 +255,8 @@ class LoginController: UIViewController, UITextFieldDelegate {
                                                                      NSAttributedString.Key.font: font])
         
         
-        attributedTitle.append(NSAttributedString(string: "Sign Up", attributes:  [NSAttributedString.Key.foregroundColor:YClolr,
-                                                                                   NSAttributedString.Key.font: font]))
+        attributedTitle.append(NSAttributedString(string: "Sign Up", attributes:                                [NSAttributedString.Key.foregroundColor:YClolr,
+                        NSAttributedString.Key.font: font]))
         
         btn.setAttributedTitle(attributedTitle, for: .normal)
         
@@ -249,7 +279,14 @@ class LoginController: UIViewController, UITextFieldDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = true
+        
+        //        eye icon in password text feild
+        if (IsOpen) == true{
+        passwordTextField.rightView = openEyeButton
+        }else{
+            passwordTextField.rightView = closeEyeButton
 
+        }
     }
     
     override func viewDidLoad() {
@@ -272,10 +309,11 @@ class LoginController: UIViewController, UITextFieldDelegate {
         setupLoginButton()
         setupHaveAccountButton()
         setupForgotPasswordButton()
-        setupSwitchBtn ()
+//        setupSwitchBtn ()
         setupAddLogo()
-
+        passwordTextField.rightView = closeEyeButton
         
+
     }
     
     
@@ -301,20 +339,20 @@ class LoginController: UIViewController, UITextFieldDelegate {
         
     }
     
-    fileprivate func setupSwitchBtn (){
-        view.addSubview(switchBtn)
-        
-        switchBtn.translatesAutoresizingMaskIntoConstraints = false
-        //        for width and hieght:
-        //        phoneTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 16).isActive = true
-        switchBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -24).isActive = true
-        switchBtn.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        switchBtn.centerYAnchor.constraint(equalTo:passwordTextField.centerYAnchor, constant: 0).isActive = true
-        
-        
-        
-        
-    }
+//    fileprivate func setupSwitchBtn (){
+//        view.addSubview(switchBtn)
+//
+//        switchBtn.translatesAutoresizingMaskIntoConstraints = false
+//        //        for width and hieght:
+//        //        phoneTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 16).isActive = true
+//        switchBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -24).isActive = true
+//        switchBtn.heightAnchor.constraint(equalToConstant: 30).isActive = true
+//        switchBtn.centerYAnchor.constraint(equalTo:passwordTextField.centerYAnchor, constant: 0).isActive = true
+//
+//
+//
+//
+//    }
     
     
     
@@ -360,7 +398,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         passwordTextField.topAnchor.constraint(equalTo: phoneTextField.bottomAnchor,constant: 15).isActive = true
         passwordTextField.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 24).isActive = true
-        passwordTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -70).isActive = true
+        passwordTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -24).isActive = true
         passwordTextField.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
     }
@@ -373,9 +411,9 @@ class LoginController: UIViewController, UITextFieldDelegate {
         view.addSubview(loginButton)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         
-        loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor,constant: 30).isActive = true
-        loginButton.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 24).isActive = true
-        loginButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -24).isActive = true
+        loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor,constant: 40).isActive = true
+        loginButton.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 66).isActive = true
+        loginButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -66).isActive = true
         loginButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
     }
