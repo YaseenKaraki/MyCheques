@@ -8,8 +8,8 @@ class NotificationsItem: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
-
-
+        
+        
         setuplabel()
         // Do any additional setup after loading the view.
     }

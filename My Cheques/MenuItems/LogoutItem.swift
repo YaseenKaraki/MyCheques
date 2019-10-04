@@ -10,11 +10,11 @@ class LogoutItem: UIViewController {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
         self.title = ""
-       
+        
         
     }
-
-   
+    
+    
     
     func sureAlert(){
         

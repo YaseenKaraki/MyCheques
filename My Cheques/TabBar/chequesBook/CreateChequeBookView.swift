@@ -9,12 +9,12 @@
 
 let font = UIFont(name: "Palatino-Roman", size: 16)
 import SkyFloatingLabelTextField
-class AddChequeBookViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
+class CreateChequeBookViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
     
     var banksNameArray = [String](arrayLiteral: "","")
     var currencyNameArray = [String](arrayLiteral: "","")
     var numberOfPaperArray = [String](arrayLiteral: "","")
-
+    
     
     let chequebookNameTextFeild: SkyFloatingLabelTextField = {
         let t = SkyFloatingLabelTextField()
@@ -50,42 +50,42 @@ class AddChequeBookViewController: UIViewController, UIPickerViewDelegate, UIPic
     }()
     
     let currencyTextfield: SkyFloatingLabelTextField = {
-           let b = SkyFloatingLabelTextField()
-           b.font = font
-           b.placeholder = "Select Currency"
-           b.title = "Currency"
-           b.titleColor = YClolr
-           b.selectedTitleColor = YClolr
-           b.selectedLineColor = YClolr
-           b.lineColor = UIColor.darkGray
-           b.lineHeight = 1.0 // bottom line height in points
-           b.selectedLineHeight = 2.0
-           b.textColor = UIColor.darkGray
-           
-           return b
-       }()
+        let b = SkyFloatingLabelTextField()
+        b.font = font
+        b.placeholder = "Select Currency"
+        b.title = "Currency"
+        b.titleColor = YClolr
+        b.selectedTitleColor = YClolr
+        b.selectedLineColor = YClolr
+        b.lineColor = UIColor.darkGray
+        b.lineHeight = 1.0 // bottom line height in points
+        b.selectedLineHeight = 2.0
+        b.textColor = UIColor.darkGray
+        
+        return b
+    }()
     
     let numberOfPaperTextfield: SkyFloatingLabelTextField = {
-           let b = SkyFloatingLabelTextField()
-           b.font = font
-           b.placeholder = "Select papers number"
-           b.title = "Number of papers"
-           b.titleColor = YClolr
-           b.selectedTitleColor = YClolr
-           b.selectedLineColor = YClolr
-           b.lineColor = UIColor.darkGray
-           b.lineHeight = 1.0 // bottom line height in points
-           b.selectedLineHeight = 2.0
-           b.textColor = UIColor.darkGray
-           b.keyboardType = .numberPad
-           return b
-       }()
+        let b = SkyFloatingLabelTextField()
+        b.font = font
+        b.placeholder = "Select papers number"
+        b.title = "Number of papers"
+        b.titleColor = YClolr
+        b.selectedTitleColor = YClolr
+        b.selectedLineColor = YClolr
+        b.lineColor = UIColor.darkGray
+        b.lineHeight = 1.0 // bottom line height in points
+        b.selectedLineHeight = 2.0
+        b.textColor = UIColor.darkGray
+        b.keyboardType = .numberPad
+        return b
+    }()
     
     let createBtn: UIButton = {
         let btn = UIButton()
         btn.setTitle("Create", for: .normal)
         btn.setTitleColor(.white, for: .normal)
-         let font = UIFont(name: "AppleSDGothicNeo-Bold", size: 30)
+        let font = UIFont(name: "AppleSDGothicNeo-Bold", size: 22)
         btn.titleLabel?.font = font
         btn.backgroundColor = YClolr
         btn.layer.cornerRadius = 5
@@ -100,28 +100,28 @@ class AddChequeBookViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     
     let cancelBtn: UIButton = {
-           let btn = UIButton()
-           btn.setTitle("Cancel", for: .normal)
-           btn.setTitleColor(.white, for: .normal)
-            let font = UIFont(name: "AppleSDGothicNeo-Bold", size: 30)
-           btn.titleLabel?.font = font
-           btn.backgroundColor = YClolr
-           btn.layer.cornerRadius = 5
-           btn.clipsToBounds = true
-           btn.addTarget(self, action: #selector(cancleBtnAction), for: .touchUpInside)
-           
-           return btn
-       }()
-       @objc func cancleBtnAction(){
-           print("Cancel")
+        let btn = UIButton()
+        btn.setTitle("Cancel", for: .normal)
+        btn.setTitleColor(.white, for: .normal)
+        let font = UIFont(name: "AppleSDGothicNeo-Bold", size: 22)
+        btn.titleLabel?.font = font
+        btn.backgroundColor = YClolr
+        btn.layer.cornerRadius = 5
+        btn.clipsToBounds = true
+        btn.addTarget(self, action: #selector(cancleBtnAction), for: .touchUpInside)
+        
+        return btn
+    }()
+    @objc func cancleBtnAction(){
+        print("Cancel")
         self.navigationController?.popViewController(animated: false)
-       }
+    }
     
     
     let banksNamePicker = UIPickerView()
     let currencyNamePicker = UIPickerView()
     let numberOfPaperPicker = UIPickerView()
-
+    
     
     override func viewDidLoad() {
         
@@ -129,6 +129,7 @@ class AddChequeBookViewController: UIViewController, UIPickerViewDelegate, UIPic
         view.backgroundColor = BColor
         self.navigationItem.title = "Create Cheque Book"
         
+        self.navigationItem.setHidesBackButton(true, animated: true)
         setupBookNameTextFeild()
         setupBankNameTextFeild()
         setupCurrencyTextFeild()
@@ -137,11 +138,11 @@ class AddChequeBookViewController: UIViewController, UIPickerViewDelegate, UIPic
         setupCancleBtn()
         
         self.navigationController?.navigationBar.tintColor = UIColor.white
-//        change backround color for picker
+        //        change backround color for picker
         banksNamePicker.backgroundColor = YClolr
         currencyNamePicker.backgroundColor = YClolr
         numberOfPaperPicker.backgroundColor = YClolr
-//        set picker for text feild
+        //        set picker for text feild
         bankNameTextfield.inputView = banksNamePicker
         currencyTextfield.inputView = currencyNamePicker
         numberOfPaperTextfield.inputView = numberOfPaperPicker
@@ -162,7 +163,7 @@ class AddChequeBookViewController: UIViewController, UIPickerViewDelegate, UIPic
                           "Commercial Bank of Jordan",
                           "Jordan Kuwait Bank",
                           "Other"]
-
+        
         currencyNameArray = ["Jordanian Dinar - JD","United States Dollar - USD" , "Israeli New Shekel - ILS"]
         numberOfPaperArray = ["10","15","20","30","Other"]
         
@@ -171,14 +172,14 @@ class AddChequeBookViewController: UIViewController, UIPickerViewDelegate, UIPic
         numberOfPaperPicker.delegate = self
         
         
-
+        
     }
     
     
     
     override func viewDidAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = true
-            }
+    }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -188,7 +189,7 @@ class AddChequeBookViewController: UIViewController, UIPickerViewDelegate, UIPic
         if pickerView == banksNamePicker{
             return banksNameArray.count
         }
-       else if pickerView == currencyNamePicker{
+        else if pickerView == currencyNamePicker{
             return currencyNameArray.count
         }else{
             
@@ -197,10 +198,10 @@ class AddChequeBookViewController: UIViewController, UIPickerViewDelegate, UIPic
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == banksNamePicker{
-                   return banksNameArray[row]
-               }
-              else  if pickerView == currencyNamePicker {
-                   return currencyNameArray[row]
+            return banksNameArray[row]
+        }
+        else  if pickerView == currencyNamePicker {
+            return currencyNameArray[row]
         }else{
             return numberOfPaperArray[row]
         }
@@ -209,50 +210,50 @@ class AddChequeBookViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == banksNamePicker {// begin for banks name picker
-        if banksNameArray[row] == "Other"{
-        bankNameTextfield.text = ""
-        bankNameTextfield.placeholder = "Enter Bank Name"
-       bankNameTextfield.inputView = nil
-        }
-        else{
-            bankNameTextfield.text = banksNameArray[row]
-        }
+            if banksNameArray[row] == "Other"{
+                bankNameTextfield.text = ""
+                bankNameTextfield.placeholder = "Type Bank Name"
+                bankNameTextfield.inputView = nil
+            }
+            else{
+                bankNameTextfield.text = banksNameArray[row]
+            }
         }// end for banks name picker
             
-        //  for currency
+            //  for currency
         else if pickerView == currencyNamePicker{
             currencyTextfield.text = currencyNameArray[row]
         } else {
             
             if numberOfPaperArray[row] == "Other"{
-                   numberOfPaperTextfield.text = ""
-                   numberOfPaperTextfield.placeholder = "Number of papers"
-                   numberOfPaperTextfield.inputView = nil
-                   }
-                   else{
-                       numberOfPaperTextfield.text = numberOfPaperArray[row]
-                   }
+                numberOfPaperTextfield.text = ""
+                numberOfPaperTextfield.placeholder = "Type number of papers"
+                numberOfPaperTextfield.inputView = nil
+            }
+            else{
+                numberOfPaperTextfield.text = numberOfPaperArray[row]
+            }
         }
     }
     
     ////    change color text for picker
     public func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-         if pickerView == banksNamePicker { // for banks name title
+        if pickerView == banksNamePicker { // for banks name title
             
-                let titleData = banksNameArray[row]
-                let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedString.Key.font:UIFont(name: "Helvetica", size: 17.0)!,NSAttributedString.Key.foregroundColor:UIColor.white])
-                return myTitle
+            let titleData = banksNameArray[row]
+            let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedString.Key.font:UIFont(name: "Helvetica", size: 17.0)!,NSAttributedString.Key.foregroundColor:UIColor.white])
+            return myTitle
             
-         }else if pickerView == currencyNamePicker {// for currency title
-                let titleData = currencyNameArray[row]
-                let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedString.Key.font:UIFont(name: "Helvetica", size: 17.0)!,NSAttributedString.Key.foregroundColor:UIColor.white])
-                return myTitle
+        }else if pickerView == currencyNamePicker {// for currency title
+            let titleData = currencyNameArray[row]
+            let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedString.Key.font:UIFont(name: "Helvetica", size: 17.0)!,NSAttributedString.Key.foregroundColor:UIColor.white])
+            return myTitle
             
-         }else{
-
-                let titleData = numberOfPaperArray[row]
-                let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedString.Key.font:UIFont(name: "Helvetica", size: 17.0)!,NSAttributedString.Key.foregroundColor:UIColor.white])
-                return myTitle
+        }else{
+            
+            let titleData = numberOfPaperArray[row]
+            let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedString.Key.font:UIFont(name: "Helvetica", size: 17.0)!,NSAttributedString.Key.foregroundColor:UIColor.white])
+            return myTitle
             
         }
         
@@ -271,48 +272,48 @@ class AddChequeBookViewController: UIViewController, UIPickerViewDelegate, UIPic
         
         view.addSubview(bankNameTextfield)
         bankNameTextfield.anchors(top: chequebookNameTextFeild.bottomAnchor, topPad: 30,
-                             bottom: nil, bottomPad: 0,
-                             left: view.leftAnchor, leftPad: 30,
-                             right: view.rightAnchor, rightPad: 30,
-                             height: 40 , width: 0)
+                                  bottom: nil, bottomPad: 0,
+                                  left: view.leftAnchor, leftPad: 30,
+                                  right: view.rightAnchor, rightPad: 30,
+                                  height: 40 , width: 0)
     }
     
     fileprivate func setupCurrencyTextFeild(){
         
         view.addSubview(currencyTextfield)
         currencyTextfield.anchors(top: bankNameTextfield.bottomAnchor, topPad: 30,
-        bottom: nil, bottomPad: 0,
-        left: view.leftAnchor, leftPad: 30,
-        right: view.centerXAnchor, rightPad: 15 ,
-        height: 40 , width: 0)
+                                  bottom: nil, bottomPad: 0,
+                                  left: view.leftAnchor, leftPad: 30,
+                                  right: view.rightAnchor, rightPad: 50 ,
+                                  height: 40 , width: 0)
     }
     
     fileprivate func setupNumberOfpapersTextFeild(){
         
         view.addSubview(numberOfPaperTextfield)
-        numberOfPaperTextfield.anchors(top: bankNameTextfield.bottomAnchor, topPad: 30,
-        bottom: nil, bottomPad: 0,
-        left: view.centerXAnchor, leftPad: 5,
-        right: view.rightAnchor, rightPad: 30 ,
-        height: 40 , width: 0)
+        numberOfPaperTextfield.anchors(top: currencyTextfield.bottomAnchor, topPad: 30,
+                                       bottom: nil, bottomPad: 0,
+                                       left: view.leftAnchor, leftPad: 30,
+                                       right: view.rightAnchor, rightPad: 50 ,
+                                       height: 40 , width: 0)
     }
     fileprivate func setupCreateBtn(){
         view.addSubview(createBtn)
-        createBtn.anchors(top: currencyTextfield.bottomAnchor, topPad: 55,
-        bottom: nil, bottomPad: 0,
-        left: view.centerXAnchor, leftPad: 15,
-        right: view.rightAnchor, rightPad: 30 ,
-        height: 50 , width: 0)
+        createBtn.anchors(top: numberOfPaperTextfield.bottomAnchor, topPad: 55,
+                          bottom: nil, bottomPad: 0,
+                          left: view.centerXAnchor, leftPad: 15,
+                          right: view.rightAnchor, rightPad: 30 ,
+                          height: 50 , width: 0)
         
         
     }
     fileprivate func setupCancleBtn(){
         view.addSubview(cancelBtn)
-        cancelBtn.anchors(top: currencyTextfield.bottomAnchor, topPad: 55,
-        bottom: nil, bottomPad: 0,
-        left: view.leftAnchor, leftPad: 30,
-        right: view.centerXAnchor, rightPad: 15 ,
-        height: 50 , width: 0)
+        cancelBtn.anchors(top: numberOfPaperTextfield.bottomAnchor, topPad: 55,
+                          bottom: nil, bottomPad: 0,
+                          left: view.leftAnchor, leftPad: 30,
+                          right: view.centerXAnchor, rightPad: 15 ,
+                          height: 50 , width: 0)
     }
     
     

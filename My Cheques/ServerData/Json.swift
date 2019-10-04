@@ -4,12 +4,12 @@ import UIKit
 public struct ServerData {
     
     public let error: String
-    public let success: Bool
+    public let success: Int
     public let token: String
     public let id : Int
     
     
-    public init(error: String ,success: Bool, token: String,id: Int) {
+    public init(error: String ,success: Int, token: String,id: Int) {
         self.error = error
         self.success = success
         self.token = token
@@ -29,7 +29,7 @@ extension ServerData: JSONDecodable {
         let token = JSON["token"]
         let id = JSON["user_id"]
         self.error = error as? String ?? ""
-        self.success = success as? Bool ?? false
+        self.success = success as? Int ?? -1
         self.token = token as? String ?? ""
         self.id = id as? Int ?? -1
 

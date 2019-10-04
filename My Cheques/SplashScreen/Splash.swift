@@ -48,17 +48,17 @@ class splash: UIViewController{
         
         setupAddLogo()
     }
-        
-        }
-        
-        
+    
+}
 
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
 
 
 

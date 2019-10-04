@@ -13,7 +13,7 @@ class Setting: NSObject {
     let name: String
     let imageName: String
     
-     init(name: String, imageName: String) {
+    init(name: String, imageName: String) {
         self.name = name
         self.imageName = imageName
     }
@@ -38,15 +38,15 @@ UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     let cellId = "cellId"
     
     let settings: [Setting] = {
-
+        
         return [Setting(name: "Settings", imageName: "settingsIcon1"),
                 Setting(name: "Notification", imageName: "iconNotificationDark"),
                 Setting(name: "Log Out", imageName: "logoutIcon1")]
-
+        
     }()
     
     @objc func handleMenuToggle(){
-//        print("Handle")
+        //        print("Handle")
         //        show menu
         
         
@@ -68,8 +68,8 @@ UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
                 self.collectionView.frame = CGRect.init(x: 0, y: 0, width: self.collectionView.frame.width,
                                                         height: self.collectionView.frame.height)
             }, completion: nil)
-
-           
+            
+            
             
         }
         
@@ -80,10 +80,10 @@ UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
             self.menuView.alpha = 0
             if let window = UIApplication.shared.keyWindow{
                 let xx:CGFloat = window.frame.width / 2
-
+                
                 self.collectionView.frame = CGRect.init(x: -xx, y: 0, width: self.collectionView.frame.width,
-                                                   height: self.collectionView.frame.height)
-
+                                                        height: self.collectionView.frame.height)
+                
             }
             
         }
@@ -128,10 +128,10 @@ UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
             
             if setting.name == "Settings"{
                 
-            self.calenderController?.showSettings(setting: setting)
-            self.chequesBooksController?.showSettings(setting: setting)
-            self.receivedChequesController?.showSettings(setting: setting)
-
+                self.calenderController?.showSettings(setting: setting)
+                self.chequesBooksController?.showSettings(setting: setting)
+                self.receivedChequesController?.showSettings(setting: setting)
+                
                 
             }
             if setting.name == "Notification"{
@@ -142,23 +142,23 @@ UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
                 
             }
             if setting.name == "Log Out"{
-           
+                
                 self.calenderController?.showLogout(setting: setting)
                 self.chequesBooksController?.showLogout(setting: setting)
                 self.receivedChequesController?.showLogout(setting: setting)
             }
         }
         
-    
+        
     }
-   
-   
+    
+    
     override init() {
         super.init()
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(SettingCell.self,
                                 forCellWithReuseIdentifier: cellId)
-
+        
     }
 }

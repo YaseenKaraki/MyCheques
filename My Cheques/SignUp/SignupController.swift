@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+
 
 class SignupController: UIViewController,UITextFieldDelegate{
     
-    let  serverData = ServerData.init(error: "", success: false, token: "", id: -1)
+    let  serverData = ServerData.init(error: "", success: -1, token: "", id: -1)
     
     @objc  func goToHomePageAction(){
         
@@ -36,16 +39,15 @@ class SignupController: UIViewController,UITextFieldDelegate{
         
         var isEngName = false
         
-    
+        
         let customSet: CharacterSet = [" "]
         let finalSet = CharacterSet.letters.union(customSet)
         isEngName = finalSet.isSuperset(of: CharacterSet(charactersIn: UsrName))
-        print(isEngName)
         
         
-//        let patternName = "[a-zA-Z ]+"
-//        let isEngName = UsrName.range(of: patternName, options: .regularExpression)
-//
+        //        let patternName = "[a-zA-Z ]+"
+        //        let isEngName = UsrName.range(of: patternName, options: .regularExpression)
+        //
         if (!isEngName   ||  nameLength > 50){
             userNameErrorText.text = " Wrong user name."
             isTrueName = false
@@ -53,25 +55,25 @@ class SignupController: UIViewController,UITextFieldDelegate{
             isTrueName = true
             userNameErrorText.text = ""
         }
-            
-
+        
+        
         let mobileLength = phone.count
-//        check if phone start 05
+        //        check if phone start 05
         var isStartTrue = false
         let patternStart = "^05"
         let startTrue = phone.range(of: patternStart, options: .regularExpression)
         if startTrue != nil{
             isStartTrue = true
         }
-//      check if all number is english number..
+        //      check if all number is english number..
         var isEngNum = false
         let engNum = Int(phone)
         if engNum != nil {
             isEngNum = true    
         }
         
-//        print("is eng")
-//        print(isEngNum)
+        //        print("is eng")
+        //        print(isEngNum)
         
         if (mobileLength != 10 || !isStartTrue || !isEngNum ){
             
@@ -81,7 +83,7 @@ class SignupController: UIViewController,UITextFieldDelegate{
         }else{
             isTrueMobileNo = true
             phoneErrorText.text = ""
-
+            
         }
         
         let PswLength = psww.count
@@ -103,23 +105,18 @@ class SignupController: UIViewController,UITextFieldDelegate{
         }else{
             isTrueConfPassword = true
             confPasswordErrorText.text = ""
-
+            
         }
         
         if ( isTrueName && isTrueMobileNo && isTruePassword && isTrueConfPassword ){
-            
             postRegCall(name: UsrName, mob: phone, psw: psww)
-            
-            if (serverData.success == true){
-                
+            if (serverData.success == 1){
                 goToHomePageAction()
                 
             }else{
-                
                 let alert :UIAlertController = UIAlertController(title: "Error", message: "This user already exists.", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
                 present(alert, animated: false, completion: nil)
-                
             }
             
         }
@@ -132,9 +129,18 @@ class SignupController: UIViewController,UITextFieldDelegate{
     }
     
     //send data to server
+    //        MARK:- Server
+    
+    //    func newPostRegCall(name:String ,mob:String, psw:String) {
+    //        let serverURI =  "http://192.168.10.224:9091/api/signUp"
+    //        Alamofire.request(serverURI, method: .post, parameters: ["user_name": name,"user_phone": mob, "user_password":psw], encoding: . , headers: <#T##HTTPHeaders?#>)
+    //
+    //
+    //    }
+    
     func postRegCall(name:String ,mob:String, psw:String) {
-        
-        let Url = String(format: "http://192.168.100.116:9091/api/signUp")
+        print("Start Post")
+        let Url = String(format: "http://192.168.10.224:9091/api/signUp")
         guard let serviceUrl = URL(string: Url) else { return }
         let parameterDictionary = ["user_name": name,"user_phone": mob, "user_password":psw]
         var request = URLRequest(url: serviceUrl)
@@ -147,12 +153,11 @@ class SignupController: UIViewController,UITextFieldDelegate{
         
         let session = URLSession.shared
         session.dataTask(with: request) { (data, response, error) in
-
+            
             if let data = data {
                 do {
                     let JSON = try JSONSerialization.jsonObject(with: data, options: [])
                     if let serverData = ServerData(JSON: JSON){
-                        
                         print(serverData)
                     }
                     print(JSON)
@@ -160,7 +165,7 @@ class SignupController: UIViewController,UITextFieldDelegate{
                     print(error)
                 }
             }
-            }.resume()
+        }.resume()
     }
     
     
@@ -196,8 +201,8 @@ class SignupController: UIViewController,UITextFieldDelegate{
         l.text = "Create new account"
         l.textColor = YClolr
         l.textAlignment = .center
-//        l.layer.borderWidth = 2
-//        l.layer.cornerRadius = 15.0
+        //        l.layer.borderWidth = 2
+        //        l.layer.cornerRadius = 15.0
         return l
     }()
     let switchLabel: UILabel = {
@@ -209,7 +214,7 @@ class SignupController: UIViewController,UITextFieldDelegate{
         return l
     }()
     
-
+    
     let userNameTextField: UITextField = {
         
         let e = UITextField()
@@ -218,11 +223,13 @@ class SignupController: UIViewController,UITextFieldDelegate{
         e.attributedPlaceholder = attributedPlacholder
         e.setBottomBorder(backGroundColor: THEME, borderColor: YClolr)
         e.keyboardType = UIKeyboardType.asciiCapable
+        e.autocorrectionType = .no
+        
         
         return e
     }()
     
-
+    
     let mobileNumberTextField: UITextField = {
         let e = UITextField()
         
@@ -248,7 +255,7 @@ class SignupController: UIViewController,UITextFieldDelegate{
         return p
     }()
     
-
+    
     let confirmPswdTextField: UITextField = {
         let p = UITextField()
         
@@ -364,14 +371,14 @@ class SignupController: UIViewController,UITextFieldDelegate{
         setupTextFeildComponents()
         setupSignupButton()
         
-//        foe error
+        //        foe error
         setupUserNameErrorText()
         setupPhoneErrorText()
         setupPasswordErrorText()
         setupConfPasswordErrorText()
         
         confirmPswdTextField.rightView = closeEyeButton
-
+        
         
     }
     
@@ -420,7 +427,7 @@ class SignupController: UIViewController,UITextFieldDelegate{
         x.textAlignment = .left
         
         return x
-
+        
     }()
     let confPasswordErrorText: UILabel = {
         let ffont = UIFont.systemFont(ofSize: 11)
@@ -459,7 +466,7 @@ class SignupController: UIViewController,UITextFieldDelegate{
         userNameTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -24).isActive = true
         userNameTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
         userNameTextField.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 60).isActive = true
-//        userNameTextField.bottomAnchor.constraint(equalTo:view.centerYAnchor, constant: 0).isActive = true
+        //        userNameTextField.bottomAnchor.constraint(equalTo:view.centerYAnchor, constant: 0).isActive = true
         
     }
     fileprivate func setupUserNameErrorText (){
@@ -533,7 +540,7 @@ class SignupController: UIViewController,UITextFieldDelegate{
         confirmPswdTextField.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 24).isActive = true
         confirmPswdTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -24).isActive = true
         confirmPswdTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
-
+        
     }
     fileprivate func setupConfPasswordErrorText (){
         
@@ -541,12 +548,12 @@ class SignupController: UIViewController,UITextFieldDelegate{
         confPasswordErrorText.translatesAutoresizingMaskIntoConstraints = false
         
         confPasswordErrorText.topAnchor.constraint(equalTo: confirmPswdTextField.bottomAnchor,
-                                               constant: 1).isActive = true
+                                                   constant: 1).isActive = true
         confPasswordErrorText.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 25).isActive = true
         confPasswordErrorText.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -24).isActive = true
         confPasswordErrorText.heightAnchor.constraint(equalToConstant: 20).isActive = true
     }
-   
+    
     
     fileprivate func setupSignupButton(){
         view.addSubview(signupButton)

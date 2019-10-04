@@ -23,25 +23,25 @@ class LoginController: UIViewController, UITextFieldDelegate {
         
         let session = URLSession.shared
         session.dataTask(with: request) { (data, response, error) in
-
+            
             if let data = data {
                 do {
                     let JSON = try JSONSerialization.jsonObject(with: data, options: [])
                     if let serverData = ServerData(JSON: JSON){
                         print(serverData)
                     }
-
+                    
                     print(JSON)
                 } catch {
                     print(error)
                 }
             }
-            }.resume()
+        }.resume()
     }
     
-//    func isStringContainsOnlyNumbers(string: String) -> Bool {
-//        return string.rangeOfCharacter(from: NSCharacterSet.decimalDigits.inverted) != nil
-//    }
+    //    func isStringContainsOnlyNumbers(string: String) -> Bool {
+    //        return string.rangeOfCharacter(from: NSCharacterSet.decimalDigits.inverted) != nil
+    //    }
     
     
     
@@ -78,11 +78,11 @@ class LoginController: UIViewController, UITextFieldDelegate {
         else {
             
             let alert :UIAlertController = UIAlertController(title: "Wrong Phone number or password.", message: "please re-enter your information correctly", preferredStyle: .alert)
-
+            
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
             [phoneTextField, passwordTextField].forEach({ $0.addTarget(self, action: #selector(editingChanged), for: .editingChanged) })
-
+            
             
         }
         print(phone)
@@ -115,13 +115,13 @@ class LoginController: UIViewController, UITextFieldDelegate {
     @objc  func signupAction(){
         
         let signupcontroller = SignupController()
-    
+        
         navigationController?.pushViewController(signupcontroller, animated: true)
         
     }
     
     @objc  func goToHomePageAction(){
-     let home = MainTabBarController()
+        let home = MainTabBarController()
         navigationController?.pushViewController(home, animated: true)
         
     }
@@ -133,25 +133,25 @@ class LoginController: UIViewController, UITextFieldDelegate {
         navigationController?.pushViewController(forgetPasswordController, animated: false)
     }
     
-//    let switchBtn: UISwitch = {
-//        let sw = UISwitch()
-//        sw.onTintColor = YClolr
-//        sw.addTarget(self, action: #selector(switchAction), for: .touchUpInside)
-//        return sw
-//
-//    }()
-//    @objc func switchAction(){
-//
-//        if (switchBtn.isOn){
-//            passwordTextField.isSecureTextEntry = false
-////            passwordTextField.textColor = YClolr
-//
-//        }else{
-//        passwordTextField.isSecureTextEntry = true
-//
-//
-//        }
-//    }
+    //    let switchBtn: UISwitch = {
+    //        let sw = UISwitch()
+    //        sw.onTintColor = YClolr
+    //        sw.addTarget(self, action: #selector(switchAction), for: .touchUpInside)
+    //        return sw
+    //
+    //    }()
+    //    @objc func switchAction(){
+    //
+    //        if (switchBtn.isOn){
+    //            passwordTextField.isSecureTextEntry = false
+    ////            passwordTextField.textColor = YClolr
+    //
+    //        }else{
+    //        passwordTextField.isSecureTextEntry = true
+    //
+    //
+    //        }
+    //    }
     
     
     let phoneTextField: UITextField = {
@@ -163,7 +163,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         
         
         e.attributedPlaceholder = attributedPlacholder
-
+        
         
         e.setBottomBorder(backGroundColor: THEME, borderColor: YClolr)
         e.keyboardType = UIKeyboardType.phonePad
@@ -174,18 +174,20 @@ class LoginController: UIViewController, UITextFieldDelegate {
     }()
     let closeEyeButton: UIButton = {
         let b = UIButton()
-        b.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
-        b.clipsToBounds = true
+        b.frame = CGRect(x: 0, y: 0, width: 15, height: 15)
+        b.contentMode = .scaleAspectFill
         b.setImage(#imageLiteral(resourceName: "closeEye").withRenderingMode(.alwaysOriginal), for: .normal)
         b.addTarget(self, action: #selector(eyeHandler), for: .touchUpInside)
         return b
-
+        
     }()
     
     
     let openEyeButton: UIButton = {
         let b = UIButton()
-        b.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+        b.frame = CGRect(x: 0, y: 0, width: 15, height: 15)
+        b.contentMode = .scaleAspectFill
+        
         b.clipsToBounds = true
         b.setImage(#imageLiteral(resourceName: "Openeye").withRenderingMode(.alwaysOriginal), for: .normal)
         b.addTarget(self, action: #selector(eyeHandler), for: .touchUpInside)
@@ -194,7 +196,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
     var IsOpen = false
     @objc func eyeHandler(){
         IsOpen = !IsOpen
-
+        
         if (IsOpen){
             passwordTextField.rightView = openEyeButton
             passwordTextField.isSecureTextEntry = false
@@ -203,7 +205,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
             passwordTextField.isSecureTextEntry = true
         }
         
-           }
+    }
     
     let passwordTextField: UITextField = {
         let p = UITextField()
@@ -256,7 +258,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         
         
         attributedTitle.append(NSAttributedString(string: "Sign Up", attributes:                                [NSAttributedString.Key.foregroundColor:YClolr,
-                        NSAttributedString.Key.font: font]))
+                                                                                                                 NSAttributedString.Key.font: font]))
         
         btn.setAttributedTitle(attributedTitle, for: .normal)
         
@@ -282,10 +284,10 @@ class LoginController: UIViewController, UITextFieldDelegate {
         
         //        eye icon in password text feild
         if (IsOpen) == true{
-        passwordTextField.rightView = openEyeButton
+            passwordTextField.rightView = openEyeButton
         }else{
             passwordTextField.rightView = closeEyeButton
-
+            
         }
     }
     
@@ -298,22 +300,22 @@ class LoginController: UIViewController, UITextFieldDelegate {
         
         loginButton.isEnabled = false
         [phoneTextField, passwordTextField].forEach({ $0.addTarget(self, action: #selector(editingChanged), for: .editingChanged) })
-
+        
         
         phoneTextField.smartInsertDeleteType = UITextSmartInsertDeleteType.no
         phoneTextField.delegate = self
         
-
+        
         self.hideKeyboardWhenTappedAround() // tap to hide keyboard..
         setupTextFeildComponents()
         setupLoginButton()
         setupHaveAccountButton()
         setupForgotPasswordButton()
-//        setupSwitchBtn ()
+        //        setupSwitchBtn ()
         setupAddLogo()
         passwordTextField.rightView = closeEyeButton
         
-
+        
     }
     
     
@@ -339,20 +341,20 @@ class LoginController: UIViewController, UITextFieldDelegate {
         
     }
     
-//    fileprivate func setupSwitchBtn (){
-//        view.addSubview(switchBtn)
-//
-//        switchBtn.translatesAutoresizingMaskIntoConstraints = false
-//        //        for width and hieght:
-//        //        phoneTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 16).isActive = true
-//        switchBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -24).isActive = true
-//        switchBtn.heightAnchor.constraint(equalToConstant: 30).isActive = true
-//        switchBtn.centerYAnchor.constraint(equalTo:passwordTextField.centerYAnchor, constant: 0).isActive = true
-//
-//
-//
-//
-//    }
+    //    fileprivate func setupSwitchBtn (){
+    //        view.addSubview(switchBtn)
+    //
+    //        switchBtn.translatesAutoresizingMaskIntoConstraints = false
+    //        //        for width and hieght:
+    //        //        phoneTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 16).isActive = true
+    //        switchBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -24).isActive = true
+    //        switchBtn.heightAnchor.constraint(equalToConstant: 30).isActive = true
+    //        switchBtn.centerYAnchor.constraint(equalTo:passwordTextField.centerYAnchor, constant: 0).isActive = true
+    //
+    //
+    //
+    //
+    //    }
     
     
     
@@ -440,37 +442,37 @@ class LoginController: UIViewController, UITextFieldDelegate {
         haveAccountButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
     }
-//    let nameError: UITextView = {
-//        let textView = UITextView()
-//        textView.translatesAutoresizingMaskIntoConstraints = false
-//        textView.textAlignment = .left
-//        textView.textColor = .black
-//        textView.backgroundColor = THEME
-//        textView.isEditable = false
-//        //        textView.de = false
-//        textView.font = UIFont.systemFont(ofSize: 18)
-//        textView.text = "HEEEEEE"
-//
-//
-//
-//        return textView
-//
-//    }()
-
-//    fileprivate func setupErrorView(){
-//    view.addSubview(nameError)
-//
-//       nameError.translatesAutoresizingMaskIntoConstraints = false
-//       nameError.topAnchor.constraint(equalTo: forgotPassword.bottomAnchor, constant: 26).isActive = true
-//       nameError.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 12).isActive = true
-//       nameError.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -12).isActive = true
-//       nameError.heightAnchor.constraint(equalToConstant: 30).isActive = true
-//
-//
-//    }
-//
-   
-
+    //    let nameError: UITextView = {
+    //        let textView = UITextView()
+    //        textView.translatesAutoresizingMaskIntoConstraints = false
+    //        textView.textAlignment = .left
+    //        textView.textColor = .black
+    //        textView.backgroundColor = THEME
+    //        textView.isEditable = false
+    //        //        textView.de = false
+    //        textView.font = UIFont.systemFont(ofSize: 18)
+    //        textView.text = "HEEEEEE"
+    //
+    //
+    //
+    //        return textView
+    //
+    //    }()
+    
+    //    fileprivate func setupErrorView(){
+    //    view.addSubview(nameError)
+    //
+    //       nameError.translatesAutoresizingMaskIntoConstraints = false
+    //       nameError.topAnchor.constraint(equalTo: forgotPassword.bottomAnchor, constant: 26).isActive = true
+    //       nameError.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 12).isActive = true
+    //       nameError.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -12).isActive = true
+    //       nameError.heightAnchor.constraint(equalToConstant: 30).isActive = true
+    //
+    //
+    //    }
+    //
+    
+    
 }
 
 

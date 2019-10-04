@@ -13,11 +13,11 @@ class SettingItem: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
         
     }
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setuplabel()
         view.backgroundColor = THEME
     }
@@ -30,17 +30,17 @@ class SettingItem: UIViewController {
     
     
     
-
-   fileprivate func setuplabel(){
-    view.addSubview(label)
-    label.anchors(top: view.safeAreaLayoutGuide.bottomAnchor, topPad: 0,
-                  bottom: nil, bottomPad: 0,
-                  left: view.leftAnchor, leftPad:0 ,
-                  right: view.rightAnchor, rightPad: 0,
-                  height: 25, width: 400)
-
     
-    
+    fileprivate func setuplabel(){
+        view.addSubview(label)
+        label.anchors(top: view.safeAreaLayoutGuide.bottomAnchor, topPad: 0,
+                      bottom: nil, bottomPad: 0,
+                      left: view.leftAnchor, leftPad:0 ,
+                      right: view.rightAnchor, rightPad: 0,
+                      height: 25, width: 400)
+        
+        
+        
     }
     
 }

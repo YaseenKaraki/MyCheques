@@ -14,7 +14,7 @@ class SettingCell: BaseCell {
             backgroundColor = isHighlighted ? HighlighColor : YClolr // if... else....
             nameLabel.textColor = isHighlighted ? UIColor.darkText : UIColor.white
             iconImageView.tintColor = isHighlighted ?   UIColor.darkText : UIColor.white
-//            print("high lihted")
+            //            print("high lihted")
             
         }
         
@@ -25,7 +25,7 @@ class SettingCell: BaseCell {
     var setting: Setting? {
         didSet{
             
-        nameLabel.text = setting?.name
+            nameLabel.text = setting?.name
             if let imageName =  setting?.imageName{
                 iconImageView.image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
                 
@@ -40,7 +40,7 @@ class SettingCell: BaseCell {
     
     let nameLabel: UILabel = {
         let font = UIFont(name: "AppleSDGothicNeo-Bold", size: 18)
-
+        
         let l = UILabel()
         l.text = "Settings"
         l.textColor = THEME
@@ -52,10 +52,10 @@ class SettingCell: BaseCell {
     let iconImageView: UIImageView = {
         let img = UIImageView()
         img.image = UIImage(named: "settingsIcon1" )
-//        img.image?.withRenderingMode(.alwaysTemplate)
-//        img.mask?.backgroundColor = .white
+        //        img.image?.withRenderingMode(.alwaysTemplate)
+        //        img.mask?.backgroundColor = .white
         img.contentMode = .scaleAspectFill
-     
+        
         
         
         return img
@@ -65,7 +65,7 @@ class SettingCell: BaseCell {
     
     override func setupViews() {
         super.setupViews()
-
+        
         addSubview(nameLabel)
         addSubview(iconImageView)
         addConstraintWithFormats(format: "H:|-15-[v0(30)]-8-[v1]|", views:iconImageView, nameLabel)
@@ -75,6 +75,6 @@ class SettingCell: BaseCell {
         
         addConstraint(NSLayoutConstraint(item: iconImageView, attribute: .centerY , relatedBy: .equal, toItem:self, attribute: .centerY, multiplier: 1, constant: 0))
         
-
+        
     }
 }

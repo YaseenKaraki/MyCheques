@@ -19,7 +19,7 @@
 		18866FEC231669EB0080191F /* SettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18866FEB231669EB0080191F /* SettingsItem.swift */; };
 		18866FEF23166E810080191F /* NotificationsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18866FEE23166E810080191F /* NotificationsItem.swift */; };
 		18866FF123166ED70080191F /* LogoutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18866FF023166ED70080191F /* LogoutItem.swift */; };
-		18A440AD23336B9A003ACB94 /* addChequeBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A440AC23336B9A003ACB94 /* addChequeBookView.swift */; };
+		18A440AD23336B9A003ACB94 /* CreateChequeBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A440AC23336B9A003ACB94 /* CreateChequeBookView.swift */; };
 		18B62D1023189F76006CB260 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B62D0F23189F76006CB260 /* UserDefaults.swift */; };
 		18DD29F5230DC17200EBD74D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DD29F4230DC17200EBD74D /* AppDelegate.swift */; };
 		18DD29F7230DC17200EBD74D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DD29F6230DC17200EBD74D /* ViewController.swift */; };
@@ -75,7 +75,7 @@
 		18866FEB231669EB0080191F /* SettingsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItem.swift; sourceTree = "<group>"; };
 		18866FEE23166E810080191F /* NotificationsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsItem.swift; sourceTree = "<group>"; };
 		18866FF023166ED70080191F /* LogoutItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutItem.swift; sourceTree = "<group>"; };
-		18A440AC23336B9A003ACB94 /* addChequeBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addChequeBookView.swift; sourceTree = "<group>"; };
+		18A440AC23336B9A003ACB94 /* CreateChequeBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChequeBookView.swift; sourceTree = "<group>"; };
 		18B62D0F23189F76006CB260 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		18DD29F1230DC17200EBD74D /* My Cheques.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Cheques.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DD29F4230DC17200EBD74D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -182,7 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				18DD2A3D230DC45100EBD74D /* ChequesBooksViewController.swift */,
-				18A440AC23336B9A003ACB94 /* addChequeBookView.swift */,
+				18A440AC23336B9A003ACB94 /* CreateChequeBookView.swift */,
 			);
 			path = chequesBook;
 			sourceTree = "<group>";
@@ -580,7 +580,7 @@
 				18866FF123166ED70080191F /* LogoutItem.swift in Sources */,
 				18DD2A37230DC3CC00EBD74D /* ChangePassword.swift in Sources */,
 				185E6DA223129EE000E1CB02 /* Json.swift in Sources */,
-				18A440AD23336B9A003ACB94 /* addChequeBookView.swift in Sources */,
+				18A440AD23336B9A003ACB94 /* CreateChequeBookView.swift in Sources */,
 				18DD29F5230DC17200EBD74D /* AppDelegate.swift in Sources */,
 				181E6C4D2323D1C1007B0101 /* free.swift in Sources */,
 				18DD2A31230DC37000EBD74D /* SignupController.swift in Sources */,

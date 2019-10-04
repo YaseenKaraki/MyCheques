@@ -14,20 +14,20 @@ class ReceivedChequesViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = THEME
         configrationNavigationBar()
-//        navigationItem.title = "Received Cheques"
-
-
+        //        navigationItem.title = "Received Cheques"
+        
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
         
     }
     func configrationNavigationBar (){
-    navigationController?.navigationBar.barTintColor = YClolr
-    navigationController?.navigationBar.barStyle = .black
-    navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "iconMenu").withRenderingMode(.alwaysTemplate), style: .plain, target: self, action: #selector(handleMenuToggle))
-    navigationItem.leftBarButtonItem?.tintColor = THEME
-    
+        navigationController?.navigationBar.barTintColor = YClolr
+        navigationController?.navigationBar.barStyle = .black
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "iconMenu").withRenderingMode(.alwaysTemplate), style: .plain, target: self, action: #selector(handleMenuToggle))
+        navigationItem.leftBarButtonItem?.tintColor = THEME
+        
     }
     
     
@@ -92,7 +92,7 @@ class ReceivedChequesViewController: UIViewController {
         
     }
     
-
+    
     
     
 }
