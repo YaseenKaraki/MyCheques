@@ -86,8 +86,9 @@ class LoginController: UIViewController, UITextFieldDelegate {
                         [self.phoneTextField, self.passwordTextField].forEach({ $0.addTarget(self, action: #selector(self.editingChanged), for: .editingChanged) })
                     }
                 }else  {
-                    let  alert: UIAlertController = UIAlertController(title: "Error", message: "Please check connection and try again", preferredStyle: .alert)
-                    self.present(alert, animated: true, completion: nil)
+                    let alert :UIAlertController = UIAlertController(title: "Error", message: "Please check connection and try again.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                                           self.present(alert, animated: false, completion: nil)
                     
                 }
                 
@@ -143,25 +144,6 @@ class LoginController: UIViewController, UITextFieldDelegate {
         navigationController?.pushViewController(forgetPasswordController, animated: false)
     }
     
-    //    let switchBtn: UISwitch = {
-    //        let sw = UISwitch()
-    //        sw.onTintColor = YClolr
-    //        sw.addTarget(self, action: #selector(switchAction), for: .touchUpInside)
-    //        return sw
-    //
-    //    }()
-    //    @objc func switchAction(){
-    //
-    //        if (switchBtn.isOn){
-    //            passwordTextField.isSecureTextEntry = false
-    ////            passwordTextField.textColor = YClolr
-    //
-    //        }else{
-    //        passwordTextField.isSecureTextEntry = true
-    //
-    //
-    //        }
-    //    }
     
     
     let phoneTextField: UITextField = {
@@ -321,7 +303,6 @@ class LoginController: UIViewController, UITextFieldDelegate {
         setupLoginButton()
         setupHaveAccountButton()
         setupForgotPasswordButton()
-        //        setupSwitchBtn ()
         setupAddLogo()
         passwordTextField.rightView = closeEyeButton
         
@@ -351,20 +332,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         
     }
     
-    //    fileprivate func setupSwitchBtn (){
-    //        view.addSubview(switchBtn)
-    //
-    //        switchBtn.translatesAutoresizingMaskIntoConstraints = false
-    //        //        for width and hieght:
-    //        //        phoneTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 16).isActive = true
-    //        switchBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -24).isActive = true
-    //        switchBtn.heightAnchor.constraint(equalToConstant: 30).isActive = true
-    //        switchBtn.centerYAnchor.constraint(equalTo:passwordTextField.centerYAnchor, constant: 0).isActive = true
-    //
-    //
-    //
-    //
-    //    }
+
     
     
     
@@ -399,9 +367,6 @@ class LoginController: UIViewController, UITextFieldDelegate {
         phoneTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -24).isActive = true
         phoneTextField.heightAnchor.constraint(equalToConstant: 30).isActive = true
         phoneTextField.bottomAnchor.constraint(equalTo:view.centerYAnchor, constant: -20).isActive = true
-        
-        
-        
     }
     
     fileprivate func setupPasswordTextField (){
@@ -412,13 +377,9 @@ class LoginController: UIViewController, UITextFieldDelegate {
         passwordTextField.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 24).isActive = true
         passwordTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -24).isActive = true
         passwordTextField.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        
     }
     
-    
-    
-    
-    
+
     fileprivate func setupLoginButton(){
         view.addSubview(loginButton)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
@@ -427,7 +388,6 @@ class LoginController: UIViewController, UITextFieldDelegate {
         loginButton.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 66).isActive = true
         loginButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -66).isActive = true
         loginButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        
     }
     
     fileprivate func setupForgotPasswordButton(){
@@ -438,7 +398,6 @@ class LoginController: UIViewController, UITextFieldDelegate {
         forgotPassword.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 24).isActive = true
         forgotPassword.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -24).isActive = true
         forgotPassword.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        
     }
     
     fileprivate func setupHaveAccountButton(){
@@ -452,36 +411,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         haveAccountButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
     }
-    //    let nameError: UITextView = {
-    //        let textView = UITextView()
-    //        textView.translatesAutoresizingMaskIntoConstraints = false
-    //        textView.textAlignment = .left
-    //        textView.textColor = .black
-    //        textView.backgroundColor = THEME
-    //        textView.isEditable = false
-    //        //        textView.de = false
-    //        textView.font = UIFont.systemFont(ofSize: 18)
-    //        textView.text = "HEEEEEE"
-    //
-    //
-    //
-    //        return textView
-    //
-    //    }()
-    
-    //    fileprivate func setupErrorView(){
-    //    view.addSubview(nameError)
-    //
-    //       nameError.translatesAutoresizingMaskIntoConstraints = false
-    //       nameError.topAnchor.constraint(equalTo: forgotPassword.bottomAnchor, constant: 26).isActive = true
-    //       nameError.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 12).isActive = true
-    //       nameError.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -12).isActive = true
-    //       nameError.heightAnchor.constraint(equalToConstant: 30).isActive = true
-    //
-    //
-    //    }
-    //
-    
+   
     
 }
 

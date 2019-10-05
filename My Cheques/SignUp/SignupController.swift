@@ -123,12 +123,13 @@ class SignupController: UIViewController,UITextFieldDelegate{
                     }
                 }else {
                     
-                    let  alert: UIAlertController = UIAlertController(title: "Error", message: "Please check connection and try again", preferredStyle: .alert)
-                    self.present(alert, animated: true, completion: nil)
+                    let alert :UIAlertController = UIAlertController(title: "Error", message: "Please check connection and try again.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                                           self.present(alert, animated: false, completion: nil)
+                   
                 }
                 
             }
-            
             
             //        for Console:::
             print("User Name: "+UsrName)
