@@ -46,7 +46,7 @@ class SignupController: UIViewController,UITextFieldDelegate{
         //        let patternName = "[a-zA-Z ]+"
         //        let isEngName = UsrName.range(of: patternName, options: .regularExpression)
         //
-        if (!isEngName   ||  nameLength > 50){
+        if (!isEngName   ||  nameLength > 50 || nameLength == 0 || UsrName == "" ){
             userNameErrorText.text = " Wrong user name."
             isTrueName = false
         }else{
@@ -145,25 +145,25 @@ class SignupController: UIViewController,UITextFieldDelegate{
     }
     
 
-    @objc func editingChanged(_ textField: UITextField) {
-        if textField.text?.count == 1 {
-            if textField.text?.first == " " {
-                textField.text = ""
-                return
-            }
-        }
-        guard
-            let usr = userNameTextField.text, !usr.isEmpty,
-            let mobile = mobileNumberTextField.text, !mobile.isEmpty,
-            let pswd = passwordTextField.text, !pswd.isEmpty,
-            let confirmPswd = confirmPswdTextField.text, !confirmPswd.isEmpty
-            
-            else {
-                signupButton.isEnabled = false
-                return
-        }
-        signupButton.isEnabled = true
-    }
+//    @objc func editingChanged(_ textField: UITextField) {
+//        if textField.text?.count == 1 {
+//            if textField.text?.first == " " {
+//                textField.text = ""
+//                return
+//            }
+//        }
+//        guard
+//            let usr = userNameTextField.text, !usr.isEmpty,
+//            let mobile = mobileNumberTextField.text, !mobile.isEmpty,
+//            let pswd = passwordTextField.text, !pswd.isEmpty,
+//            let confirmPswd = confirmPswdTextField.text, !confirmPswd.isEmpty
+//            
+//            else {
+//                signupButton.isEnabled = false
+//                return
+//        }
+//        signupButton.isEnabled = true
+//    }
     
     
     
@@ -330,10 +330,10 @@ class SignupController: UIViewController,UITextFieldDelegate{
         navigationController?.isNavigationBarHidden = true
         view.backgroundColor = THEME
         
-        signupButton.isEnabled = false
-        [userNameTextField, mobileNumberTextField, passwordTextField, confirmPswdTextField].forEach({ $0.addTarget(self,
-                                                                                                                   action: #selector(editingChanged),
-                                                                                                                   for:.editingChanged) })
+//        signupButton.isEnabled = false
+//        [userNameTextField, mobileNumberTextField, passwordTextField, confirmPswdTextField].forEach({ $0.addTarget(self,
+//                                                                                                                   action: #selector(editingChanged),
+//                                                                                                                   for:.editingChanged) })
         self.hideKeyboardWhenTappedAround() // tp hide keyboard..
         
         mobileNumberTextField.smartInsertDeleteType = UITextSmartInsertDeleteType.no

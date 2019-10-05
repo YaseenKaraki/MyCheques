@@ -10,9 +10,6 @@ import UIKit
 
 class splash: UIViewController{
     
-    fileprivate func isLoggedIn()->Bool{
-        return UserDefaults.standard.isLoggedIn()
-    }
     
     let logo: UIImageView = {
         let i = UIImageView()
@@ -35,6 +32,7 @@ class splash: UIViewController{
                      right: nil, rightPad: 0,
                      height: 190, width: 190)
         logo.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
     }
     
     override func viewDidLoad() {
@@ -47,10 +45,27 @@ class splash: UIViewController{
         
         
         setupAddLogo()
+        Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(dissmissSplashContreller), userInfo: nil, repeats: false)
+
     }
+    @objc func dissmissSplashContreller(){
+        let def = UserDefaults.standard
+        let tokenn = def.object(forKey: "token") as? String
+           if tokenn != nil{
+               
+              let home = MainTabBarController()
+               navigationController?.pushViewController(home, animated: false)
+               
+           }else{
+               
+               let logincontroller = LoginController()
+            navigationController?.pushViewController(logincontroller, animated: false)
+              
+       }
+    
     
 }
-
+}
 
 
 

@@ -9,42 +9,6 @@
 import UIKit
 class LoginController: UIViewController, UITextFieldDelegate {
     
-    //    func postLoginCall(mob:String, psw:String) {
-    //        let Url = String(format: "http://192.168.100.108:9091/api/auth")
-    //        guard let serviceUrl = URL(string: Url) else { return }
-    //        let parameterDictionary = ["user_phone": mob, "user_password":psw]
-    //        var request = URLRequest(url: serviceUrl)
-    //        request.httpMethod = "POST"
-    //        request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
-    //        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameterDictionary, options: []) else {
-    //            return
-    //        }
-    //        request.httpBody = httpBody
-    //
-    //        let session = URLSession.shared
-    //        session.dataTask(with: request) { (data, response, error) in
-    //
-    //            if let data = data {
-    //                do {
-    //                    let JSON = try JSONSerialization.jsonObject(with: data, options: [])
-    //                    if let serverData = ServerData(JSON: JSON){
-    //                        print(serverData)
-    //                    }
-    //
-    //                    print(JSON)
-    //                } catch {
-    //                    print(error)
-    //                }
-    //            }
-    //        }.resume()
-    //    }
-    //
-    //    func isStringContainsOnlyNumbers(string: String) -> Bool {
-    //        return string.rangeOfCharacter(from: NSCharacterSet.decimalDigits.inverted) != nil
-    //    }
-    
-    
-    
     @objc func loginBtnAction(){
         guard
             let phone = phoneTextField.text,
@@ -83,7 +47,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
                         let alert :UIAlertController = UIAlertController(title: "Wrong Phone number or password.", message: "please re-enter your information correctly", preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
                         self.present(alert, animated: true, completion: nil)
-                        [self.phoneTextField, self.passwordTextField].forEach({ $0.addTarget(self, action: #selector(self.editingChanged), for: .editingChanged) })
+//                        [self.phoneTextField, self.passwordTextField].forEach({ $0.addTarget(self, action: #selector(self.editingChanged), for: .editingChanged) })
                     }
                 }else  {
                     let alert :UIAlertController = UIAlertController(title: "Error", message: "Please check connection and try again.", preferredStyle: .alert)
@@ -92,35 +56,43 @@ class LoginController: UIViewController, UITextFieldDelegate {
                     
                 }
                 
-            }
+            }//api
                
             
-            print(phone)
-            print(psww)
+            
+        }else {
+            
+            
+                                   let alert :UIAlertController = UIAlertController(title: "Wrong Phone number or password.", message: "please re-enter your information correctly", preferredStyle: .alert)
+                                   alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                                   self.present(alert, animated: true, completion: nil)
             
         }
-    }
-    
-    
-    
-    @objc func editingChanged(_ textField: UITextField) {
-        if textField.text?.count == 1 {
-            if textField.text?.first == " " {
-                textField.text = ""
-                return
-            }
-        }
-        guard
-            let psw = passwordTextField.text, !psw.isEmpty,
-            let phone = phoneTextField.text, !phone.isEmpty
-            
-            else {
-                loginButton.isEnabled = false
-                return
-        }
-        loginButton.isEnabled = true
+        print(phone)
+        print(psww)
         
     }
+    
+    
+    
+//    @objc func editingChanged(_ textField: UITextField) {
+//        if textField.text?.count == 1 {
+//            if textField.text?.first == " " {
+//                textField.text = ""
+//                return
+//            }
+//        }
+//        guard
+//            let psw = passwordTextField.text, !psw.isEmpty,
+//            let phone = phoneTextField.text, !phone.isEmpty
+//
+//            else {
+//                loginButton.isEnabled = false
+//                return
+//        }
+//        loginButton.isEnabled = true
+//
+//    }
     
     
     @objc  func signupAction(){
@@ -290,8 +262,8 @@ class LoginController: UIViewController, UITextFieldDelegate {
         //        to hide nav par from top
         navigationController?.isNavigationBarHidden = true
         
-        loginButton.isEnabled = false
-        [phoneTextField, passwordTextField].forEach({ $0.addTarget(self, action: #selector(editingChanged), for: .editingChanged) })
+//        loginButton.isEnabled = false
+//        [phoneTextField, passwordTextField].forEach({ $0.addTarget(self, action: #selector(editingChanged), for: .editingChanged) })
         
         
         phoneTextField.smartInsertDeleteType = UITextSmartInsertDeleteType.no

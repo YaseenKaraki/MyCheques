@@ -82,7 +82,6 @@ class API: NSObject {
 
                         if let api_token = json["token"].string{
                             completion (nil, true, isSuccess.boolValue)
-                            print(api_token)
     //                        save token to userDefults
                             let def = UserDefaults.standard
                             def.setValue(api_token, forKey: "token")

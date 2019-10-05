@@ -29,33 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = rootVC
         
         self.window?.makeKeyAndVisible()
-        Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(dissmissSplashContreller), userInfo: nil, repeats: false)
     }
-    
-    
-    
-    @objc func dissmissSplashContreller(){
-        let def = UserDefaults.standard
-        if let tokenn = def.object(forKey: "token") as? String{
-            
-            print("token is :: \(tokenn)")
-            let home = CalenderViewController()
-            let controller = UINavigationController(rootViewController: home)
-            window?.rootViewController = controller
-            self.window?.makeKeyAndVisible()
-        }else{
-            
-            let logincontroller = LoginController()
-            let controller = UINavigationController(rootViewController: logincontroller)
-            
-            window?.rootViewController = controller
-            self.window?.makeKeyAndVisible()
-        }
-    }
-    
-    
-    
-    
     
     
     
