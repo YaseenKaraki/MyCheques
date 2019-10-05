@@ -21,11 +21,13 @@ class LogoutItem: UIViewController {
         
         let alert = UIAlertController(title: "Are you sure to log out?", message: nil, preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: {
-            
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler:{
             action in
             let loginController = LoginController()
             self.navigationController?.pushViewController(loginController, animated: false)
+                   UserDefaults.standard.removeObject(forKey: "token")
+
+
             
         }))
         alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: {

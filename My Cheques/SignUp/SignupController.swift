@@ -12,9 +12,7 @@ import SwiftyJSON
 
 
 class SignupController: UIViewController,UITextFieldDelegate{
-    
-    let  serverData = ServerData.init(error: "", success: -1, token: "", id: -1)
-    
+
     @objc  func goToHomePageAction(){
         
         let home = MainTabBarController()
@@ -109,69 +107,43 @@ class SignupController: UIViewController,UITextFieldDelegate{
         }
         
         if ( isTrueName && isTrueMobileNo && isTruePassword && isTrueConfPassword ){
-            postRegCall(name: UsrName, mob: phone, psw: psww)
-            if (serverData.success == 1){
-                goToHomePageAction()
-                
-            }else{
-                let alert :UIAlertController = UIAlertController(title: "Error", message: "This user already exists.", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                present(alert, animated: false, completion: nil)
-            }
-            
-        }
-        
-        //        for Console:::
-        print("User Name: "+UsrName)
-        print("Phone Number: "+phone)
-        print("Password: "+psww)
-        
-    }
-    
-    //send data to server
-    //        MARK:- Server
-    
-    //    func newPostRegCall(name:String ,mob:String, psw:String) {
-    //        let serverURI =  "http://192.168.10.224:9091/api/signUp"
-    //        Alamofire.request(serverURI, method: .post, parameters: ["user_name": name,"user_phone": mob, "user_password":psw], encoding: . , headers: <#T##HTTPHeaders?#>)
-    //
-    //
-    //    }
-    
-    func postRegCall(name:String ,mob:String, psw:String) {
-        print("Start Post")
-        let Url = String(format: "http://192.168.10.224:9091/api/signUp")
-        guard let serviceUrl = URL(string: Url) else { return }
-        let parameterDictionary = ["user_name": name,"user_phone": mob, "user_password":psw]
-        var request = URLRequest(url: serviceUrl)
-        request.httpMethod = "POST"
-        request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
-        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameterDictionary, options: []) else {
-            return
-        }
-        request.httpBody = httpBody
-        
-        let session = URLSession.shared
-        session.dataTask(with: request) { (data, response, error) in
-            
-            if let data = data {
-                do {
-                    let JSON = try JSONSerialization.jsonObject(with: data, options: [])
-                    if let serverData = ServerData(JSON: JSON){
-                        print(serverData)
+            //send data to server
+            //        MARK:- Server
+
+            API.regPost(name: UsrName, mobileNo: phone, password: psww) { (error: Error?, success: Bool, isSuccessfuly: Bool) in
+                if success {
+                    if isSuccessfuly{
+                    self.goToHomePageAction()
+                    }else{
+                        
+                        let alert :UIAlertController = UIAlertController(title: "Error", message: "This user already exists.", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                        self.present(alert, animated: false, completion: nil)
+                        
                     }
-                    print(JSON)
-                } catch {
-                    print(error)
+                }else {
+                    
+                    let  alert: UIAlertController = UIAlertController(title: "Error", message: "Please check connection and try again", preferredStyle: .alert)
+                    self.present(alert, animated: true, completion: nil)
                 }
+                
             }
-        }.resume()
+            
+            
+            //        for Console:::
+            print("User Name: "+UsrName)
+            print("Phone Number: "+phone)
+            print("Password: "+psww)
+            
+        }
+        
+        
+        
+
+        
     }
     
-    
-    
-    
-    
+
     @objc func editingChanged(_ textField: UITextField) {
         if textField.text?.count == 1 {
             if textField.text?.first == " " {
@@ -379,9 +351,7 @@ class SignupController: UIViewController,UITextFieldDelegate{
         
         confirmPswdTextField.rightView = closeEyeButton
         
-        
     }
-    
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let textFieldText = mobileNumberTextField.text,
@@ -442,11 +412,7 @@ class SignupController: UIViewController,UITextFieldDelegate{
         
     }()
     
-    
-    
-    
-    
-    fileprivate func setupTextFeildComponents(){
+        fileprivate func setupTextFeildComponents(){
         setupUserNameTextField()
         setupMobileNumberTextField()
         setupPasswordTextField()
@@ -584,3 +550,4 @@ class SignupController: UIViewController,UITextFieldDelegate{
     
     
 }
+

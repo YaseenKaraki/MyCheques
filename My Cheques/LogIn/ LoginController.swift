@@ -9,36 +9,36 @@
 import UIKit
 class LoginController: UIViewController, UITextFieldDelegate {
     
-    func postLoginCall(mob:String, psw:String) {
-        let Url = String(format: "http://192.168.100.108:9091/api/auth")
-        guard let serviceUrl = URL(string: Url) else { return }
-        let parameterDictionary = ["user_phone": mob, "user_password":psw]
-        var request = URLRequest(url: serviceUrl)
-        request.httpMethod = "POST"
-        request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
-        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameterDictionary, options: []) else {
-            return
-        }
-        request.httpBody = httpBody
-        
-        let session = URLSession.shared
-        session.dataTask(with: request) { (data, response, error) in
-            
-            if let data = data {
-                do {
-                    let JSON = try JSONSerialization.jsonObject(with: data, options: [])
-                    if let serverData = ServerData(JSON: JSON){
-                        print(serverData)
-                    }
-                    
-                    print(JSON)
-                } catch {
-                    print(error)
-                }
-            }
-        }.resume()
-    }
-    
+    //    func postLoginCall(mob:String, psw:String) {
+    //        let Url = String(format: "http://192.168.100.108:9091/api/auth")
+    //        guard let serviceUrl = URL(string: Url) else { return }
+    //        let parameterDictionary = ["user_phone": mob, "user_password":psw]
+    //        var request = URLRequest(url: serviceUrl)
+    //        request.httpMethod = "POST"
+    //        request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
+    //        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameterDictionary, options: []) else {
+    //            return
+    //        }
+    //        request.httpBody = httpBody
+    //
+    //        let session = URLSession.shared
+    //        session.dataTask(with: request) { (data, response, error) in
+    //
+    //            if let data = data {
+    //                do {
+    //                    let JSON = try JSONSerialization.jsonObject(with: data, options: [])
+    //                    if let serverData = ServerData(JSON: JSON){
+    //                        print(serverData)
+    //                    }
+    //
+    //                    print(JSON)
+    //                } catch {
+    //                    print(error)
+    //                }
+    //            }
+    //        }.resume()
+    //    }
+    //
     //    func isStringContainsOnlyNumbers(string: String) -> Bool {
     //        return string.rangeOfCharacter(from: NSCharacterSet.decimalDigits.inverted) != nil
     //    }
@@ -69,25 +69,35 @@ class LoginController: UIViewController, UITextFieldDelegate {
         
         
         if (PswLength >= 8 && phoneLength == 10 && isStartTrue  && isEngNum ){
-            postLoginCall(mob: phone, psw: psww)
             
+            API.loginPost(mobileNo: phone, password: psww) { (error: Error?, success: Bool, isSuccessfuly: Bool) in
+
+                
+                if success   {
+                    
+                    if isSuccessfuly{
+                        
+                        self.goToHomePageAction()
+                    }else{
+                        
+                        let alert :UIAlertController = UIAlertController(title: "Wrong Phone number or password.", message: "please re-enter your information correctly", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                        [self.phoneTextField, self.passwordTextField].forEach({ $0.addTarget(self, action: #selector(self.editingChanged), for: .editingChanged) })
+                    }
+                }else  {
+                    let  alert: UIAlertController = UIAlertController(title: "Error", message: "Please check connection and try again", preferredStyle: .alert)
+                    self.present(alert, animated: true, completion: nil)
+                    
+                }
+                
+            }
+               
             
-            goToHomePageAction()
+            print(phone)
+            print(psww)
+            
         }
-            
-        else {
-            
-            let alert :UIAlertController = UIAlertController(title: "Wrong Phone number or password.", message: "please re-enter your information correctly", preferredStyle: .alert)
-            
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-            present(alert, animated: true, completion: nil)
-            [phoneTextField, passwordTextField].forEach({ $0.addTarget(self, action: #selector(editingChanged), for: .editingChanged) })
-            
-            
-        }
-        print(phone)
-        print(psww)
-        
     }
     
     

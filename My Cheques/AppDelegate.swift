@@ -35,22 +35,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     @objc func dissmissSplashContreller(){
-        //        if (!UserDefaults.standard.isLoggedIn() ){
-        //        let logincontroller = LoginController()
-        //        let controller = UINavigationController(rootViewController: logincontroller)
-        //        window?.rootViewController = controller
-        //
-        //        }else{
-        //
-        //            let mainController = CalenderViewController()
-        //            let controller = UINavigationController(rootViewController: mainController)
-        //            window?.rootViewController = controller
-        //
-        //        }
-        let logincontroller = LoginController()
-        let controller = UINavigationController(rootViewController: logincontroller)
-        window?.rootViewController = controller
-        self.window?.makeKeyAndVisible()
+        let def = UserDefaults.standard
+        if let tokenn = def.object(forKey: "token") as? String{
+            
+            print("token is :: \(tokenn)")
+            let home = CalenderViewController()
+            let controller = UINavigationController(rootViewController: home)
+            window?.rootViewController = controller
+            self.window?.makeKeyAndVisible()
+        }else{
+            
+            let logincontroller = LoginController()
+            let controller = UINavigationController(rootViewController: logincontroller)
+            
+            window?.rootViewController = controller
+            self.window?.makeKeyAndVisible()
+        }
     }
     
     
